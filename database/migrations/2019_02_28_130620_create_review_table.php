@@ -16,6 +16,7 @@ class CreateReviewTable extends Migration
     public function up()
     {
         Schema::create('review', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
             $table->mediumText('review');
             $table->dateTime('date');

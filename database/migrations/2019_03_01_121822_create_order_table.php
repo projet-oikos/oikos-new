@@ -16,6 +16,7 @@ class CreateOrderTable extends Migration
     public function up()
     {
         Schema::create('order', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
             $table->dateTime('orderDate');
             $table->dateTime('billDate');
@@ -24,7 +25,7 @@ class CreateOrderTable extends Migration
         });
 
         Schema::table('order', function (Blueprint $table) {
-            $table->foreign('iduser')->references('id')->on('user');
+            $table->foreign('iduser')->references('id')->on('customers');
         });
 
 

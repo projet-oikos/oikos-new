@@ -15,6 +15,7 @@ class CreatePromoTable extends Migration
     public function up()
     {
         Schema::create('promo', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
             $table->dateTime('startingDate');
             $table->dateTime('endingDate');

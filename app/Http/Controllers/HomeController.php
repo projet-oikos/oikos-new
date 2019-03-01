@@ -19,7 +19,7 @@ class HomeController extends Controller
                                       on brand.id = product.idbrand order by brand.title desc ');
         */
         $brands = Brand::all();
-        $products = Product::all();
+
 
        /* foreach ($brands as $brand ) {
             echo $brand->title ."<br />";
@@ -48,7 +48,7 @@ class HomeController extends Controller
             ];
         }*/
         //we return all data to our Home view
-        return view('Home.home', ['brands' => $brands],['products' => $products]);
+        return view('Home.home', ['brands' => $brands]);
     }
 }
 

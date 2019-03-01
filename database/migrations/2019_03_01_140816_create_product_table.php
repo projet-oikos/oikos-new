@@ -16,6 +16,7 @@ class CreateProductTable extends Migration
     public function up()
     {
         Schema::create('product', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('name');
             $table->float('price');
@@ -31,14 +32,14 @@ class CreateProductTable extends Migration
             $table->float('weight');
             $table->float('delivery');
             $table->string('category');
-            $table->unsignedInteger('idbrand');
+            $table->unsignedInteger('brand_id');
             $table->unsignedInteger('idpromo');
             $table->timestamps();
         });
 
         Schema::table('product', function (Blueprint $table) {
 
-            $table->foreign('idbrand')->references('id')->on('brand');
+            $table->foreign('brand_id')->references('id')->on('brand');
         });
 
 
@@ -57,7 +58,7 @@ class CreateProductTable extends Migration
             'weight' =>'20',
             'delivery' => '6.9',
             'category' =>'Nourriture',
-            'idbrand' =>'1',
+            'brand_id' =>'1',
                                                             'idpromo' =>'1',
             'created_at'  => Carbon::today(),
             'updated_at'  => Carbon::today()
@@ -79,7 +80,7 @@ class CreateProductTable extends Migration
             'weight' =>'10',
             'delivery' => '6.9',
             'category' =>'Electricité',
-            'idbrand' =>'2',
+            'brand_id' =>'2',
             'idpromo' =>'11',
             'created_at'  => Carbon::today(),
             'updated_at'  => Carbon::today()
@@ -101,7 +102,7 @@ class CreateProductTable extends Migration
             'weight' =>'10',
             'delivery' => '6.9',
             'category' =>'Eau',
-            'idbrand' =>'3',
+            'brand_id' =>'3',
             'idpromo' =>'11',
             'created_at'  => Carbon::today(),
             'updated_at'  => Carbon::today()
@@ -123,7 +124,7 @@ class CreateProductTable extends Migration
             'weight' =>'20',
             'delivery' => '6.9',
             'category' =>'Eau',
-            'idbrand' =>'4',
+            'brand_id' =>'4',
             'idpromo' =>'1',
             'created_at'  => Carbon::today(),
             'updated_at'  => Carbon::today()
@@ -145,7 +146,7 @@ class CreateProductTable extends Migration
             'weight' =>'2',
             'delivery' => '6.9',
             'category' =>'Electricité',
-            'idbrand' =>'5',
+            'brand_id' =>'5',
             'idpromo' => '1',
             'created_at'  => Carbon::today(),
             'updated_at'  => Carbon::today()
@@ -167,7 +168,7 @@ class CreateProductTable extends Migration
             'weight' =>'17',
             'delivery' => '6.9',
             'category' =>'Electricité',
-            'idbrand' =>'6',
+            'brand_id' =>'6',
             'idpromo' =>'1',
             'created_at'  => Carbon::today(),
             'updated_at'  => Carbon::today()
@@ -189,7 +190,7 @@ class CreateProductTable extends Migration
             'weight' =>'6',
             'delivery' => '6.9',
             'category' =>'Electricité',
-            'idbrand' =>'7',
+            'brand_id' =>'7',
             'idpromo' =>'111',
             'created_at'  => Carbon::today(),
             'updated_at'  => Carbon::today()
@@ -211,7 +212,7 @@ class CreateProductTable extends Migration
             'weight' =>'58',
             'delivery' => '6.9',
             'category' =>'Nourriture',
-            'idbrand' =>'8',
+            'brand_id' =>'8',
             'idpromo'=>'1',
             'created_at'  => Carbon::today(),
             'updated_at'  => Carbon::today()
@@ -233,7 +234,7 @@ class CreateProductTable extends Migration
             'weight' =>'18',
             'delivery' => '6.9',
             'category' =>'Nourriture',
-            'idbrand' =>'9',
+            'brand_id' =>'9',
             'idpromo' =>'1',
             'created_at'  => Carbon::today(),
             'updated_at'  => Carbon::today()
