@@ -27,9 +27,9 @@
                             <div class="homeProductPhoto"><img src="{{$product->image1}}" width="100%"></div>
                             <div class="row">
                                 <div class="homeProductQty col-sm-6">Quantité : <input type="number" min="1"
-                                                                                       max="{{$product->stock}}"
+                                                                                       max="{{$brand->product->stock}}"
                                                                                        name="quantity" value="1"></div>
-                                <div class="homeProductPrice col-sm-6">{{$product->price}} €</div>
+                                <div class="homeProductPrice col-sm-6">{{$brand->product->price}} €</div>
                             </div>
                             <div class="homeProductButton">
                                 <button class="btn btn-success">+ info</button>
