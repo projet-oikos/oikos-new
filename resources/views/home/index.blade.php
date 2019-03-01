@@ -32,7 +32,7 @@
                                 <div class="homeProductPrice col-sm-6">{{$brand->product->price}} €</div>
                             </div>
                             <div class="homeProductButton">
-                                <button class="btn btn-success">+ info</button>
+                                <button class="btn btn-success"><a href="/product/{id}">+ info</a></button>
                                 <button class="btn btn-success"><i class="fas fa-shopping-cart"></i></button>
                             </div>
                         </div>
