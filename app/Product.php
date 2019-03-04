@@ -28,6 +28,9 @@ class Product extends Model
         'updated_at'
     ];
 
+
+    /////////////////////////////////////////     Un produit ne peut avoir qu'une marque     /////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     public function brand(){
         return $this->belongsTo('App\Brand');
     }
