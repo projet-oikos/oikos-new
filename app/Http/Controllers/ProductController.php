@@ -17,29 +17,28 @@ class ProductController extends Controller
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     public function viewProduct(){
-      $id = request()->route('id');
+      $id = request()->route('id');                                                                              // definit l'id par la route utilise
 
        $anyproduct = Product::all();
-      // dd($anyproduct);
        $anyreview = review::all();
 
 
         if ($id) {
-            $anyproduct = Product::where('id', $id)->get();
+            $anyproduct = Product::where('id', $id)->get();                                                             // Si l'ID route correspond a l'ID product alors GET
         } else {
-            $anyproduct = Product::all();
+            return redirect()->action('CatalogController@viewCatalog');                                            // Sinon si pas d'ID product !! renvois et affiche sur le catatlog
         }
-        return view('product',['anyproduct' => $anyproduct , 'anyreview' => $anyreview ]);
+        return view('product',['anyproduct' => $anyproduct , 'anyreview' => $anyreview ]);                         // Affiche le product et la review corresondant a l'ID product
 
 
     }
 
-    public function createReview() {
+    public function createReview() {                                                                                    //Fonction pour le formulaire de cration des reviews
     //        $anyreview = Review::all();
-        return view('review.create');
+        return view('review.create');                                                                              //Affiche le formulaire au client
     }
 
-    public function store() {
+    public function store() {                                                                                           //Fonction pour le formulaire qui vas stocker les review creer via le formulaire
         $review = new Review();
         $review->review = request('review');
         $review->note = request('note');
