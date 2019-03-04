@@ -27,9 +27,9 @@ class CreateAddressTable extends Migration
             $table->timestamps();
         });
 
-        Schema::table('address', function (Blueprint $table) {
+     /*   Schema::table('address', function (Blueprint $table) {
             $table->foreign('customer_id')->references('id')->on('customer');
-        });
+        });*/
 
 
         DB::table('address')->insert([

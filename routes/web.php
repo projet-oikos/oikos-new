@@ -17,11 +17,9 @@ Route::get('/product','ProductController@viewProduct');
 
 Route::post('/product', 'ProductController@store');
 
-Route::get('/product/create', 'ProductController@create');
+Route::get('/product/create', 'ProductController@createReview');
 
 Route::get('/product/{id}', 'ProductController@viewProduct');
-
-Route::get('/catalog', 'CatalogController@viewCatalog' );
 
 Route::get('/database-product','ProductController@viewDatabase');
 
@@ -35,13 +33,11 @@ Route::get('/panier', 'PanierController@viewPanier');
 
 //Home
 
-Route::get('/home', 'UserController@index');
+Route::get('/home', 'HomeController@show');
 
-Route::get('/home', 'UserController@index');
+Route::get('/', 'HomeController@show');
 
 //Customer
-
-Route::get('/', 'UserController@index');
 
 Route::get('/customer', 'CustomerController@index');
 
@@ -53,27 +49,17 @@ Route::post('/formReview', 'FormsController@display');
 
 //Function
 
-Route::get('/header', function () {
-    return view('header_oikos');
-});
+Route::get('/layout', 'LayoutController@show');
 
-Route::get('/footer', function () {
-    return view('footer_oikos');
-});
 
-Route::get('/layout', function () {
-    return view('layout');
-});
+Route::get('/contact', 'ContactController@show') ;
 
-Route::get('/contact', function () {
-    return view('contact');
-});
 
-Route::get('/about_us', function () {
-    return view('about_us');
-});
+Route::get('/about_us', 'AboutUsController@show');
 
 
 // Catalog
 Route::get('/catalog', 'CatalogController@viewCatalog');
+
+Route::get('/catalog', 'CatalogController@viewCatalog' );
 

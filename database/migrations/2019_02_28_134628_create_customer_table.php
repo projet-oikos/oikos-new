@@ -13,7 +13,7 @@ class CreateCustomerTable extends Migration
      */
     public function up()
     {
-        Schema::create('customers', function (Blueprint $table) {
+        Schema::create('customer', function (Blueprint $table) {
                 $table->engine='InnoDB';
                 $table->increments('id');
                 $table->string('lastname');
@@ -33,7 +33,7 @@ class CreateCustomerTable extends Migration
         });
 
 
-        DB::table('customers')->insert([
+        DB::table('customer')->insert([
 
             'lastname' => 'Snider',
             'name' => 'Elizabeth',
@@ -44,7 +44,7 @@ class CreateCustomerTable extends Migration
             'billing_address_id' => '1',
         ]);
 
-        DB::table('customers')->insert([
+        DB::table('customer')->insert([
 
             'lastname' => 'Harper',
             'name' => 'Carson',
@@ -55,7 +55,7 @@ class CreateCustomerTable extends Migration
             'billing_address_id' => '2',
         ]);
 
-        DB::table('customers')->insert([
+        DB::table('customer')->insert([
 
             'lastname' => 'Charles',
             'name' => 'Sage',
@@ -66,7 +66,7 @@ class CreateCustomerTable extends Migration
             'billing_address_id' => '3',
         ]);
 
-        DB::table('customers')->insert([
+        DB::table('customer')->insert([
 
             'lastname' => 'Mercer',
             'name' => 'Rigel',
@@ -77,7 +77,7 @@ class CreateCustomerTable extends Migration
             'billing_address_id' => '4',
         ]);
 
-        DB::table('customers')->insert([
+        DB::table('customer')->insert([
 
             'lastname' => 'Coffey',
             'name' => 'Galvin',
@@ -88,7 +88,7 @@ class CreateCustomerTable extends Migration
             'billing_address_id' => '5',
         ]);
 
-        DB::table('customers')->insert([
+        DB::table('customer')->insert([
 
             'lastname' => 'Conrad',
             'name' => 'Yvonne',
@@ -99,7 +99,7 @@ class CreateCustomerTable extends Migration
             'billing_address_id' => '6',
         ]);
 
-        DB::table('customers')->insert([
+        DB::table('customer')->insert([
 
             'lastname' => 'Patton',
             'name' => 'Karina',
@@ -110,7 +110,7 @@ class CreateCustomerTable extends Migration
             'billing_address_id' => '7',
         ]);
 
-        DB::table('customers')->insert([
+        DB::table('customer')->insert([
 
             'lastname' => 'Bradford',
             'name' => 'Jolene',
@@ -121,7 +121,7 @@ class CreateCustomerTable extends Migration
             'billing_address_id' => '8',
         ]);
 
-        DB::table('customers')->insert([
+        DB::table('customer')->insert([
 
             'lastname' => 'Hammond',
             'name' => 'Charissa',
@@ -132,7 +132,7 @@ class CreateCustomerTable extends Migration
             'billing_address_id' => '9',
         ]);
 
-        DB::table('customers')->insert([
+        DB::table('customer')->insert([
 
             'lastname' => 'Decker',
             'name' => 'Indigo',
