@@ -23,7 +23,8 @@
                 </div>
                 <div class="form-group">
                     <label for="photo">Background image</label>
-                    <input type="file" name="image" class="form-control-file" id="image">
+                    <input type="file" name="
+" class="form-control-file" id="image">
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>

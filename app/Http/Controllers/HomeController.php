@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Brand;
 use App\Product;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
@@ -24,13 +25,18 @@ class HomeController extends Controller
         return view('home.create');
     }
 
+    public function store(Request $request){
 
-    public function store(){
+        $newBrand = self::cleanString(request('name'));
+
+        $file = $request->file('image');
+        $file->move('img\\' . $newBrand, $file->getClientOriginalName());
+
         $brand = new Brand();
         $brand->name = request('name');
         $brand->title = request('title');
         $brand->subtitle = request('subtitle');
-        $brand->image = request('image');
+        $brand->image = 'img/' . $newBrand . '/' . $file->getClientOriginalName();
 
         $brand->save();
 
@@ -42,5 +48,16 @@ class HomeController extends Controller
 
     }
 
+    /**
+     * Clean string
+     *
+     * @param $string string to be cleaned
+     * @return string cleaned string
+     */
+    private function cleanString($string) {
+        $cleanedString = strtolower(str_replace(' ', '_', $string));
+
+        return $cleanedString;
+    }
 }
 
