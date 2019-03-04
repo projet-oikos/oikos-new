@@ -45,7 +45,15 @@ Route::get('/customer', 'CustomerController@index');
 
 Route::get('/formReview', 'FormsController@create');
 
-Route::post('/formReview', 'FormsController@display');
+Route::post('/formReview', 'FormsController@store');
+
+Route::get('/formProduct', 'ProductController@createProduct');
+
+Route::post('/formProduct', 'ProductController@storeProduct');
+
+Route::get('/formProduct/{id}/edit', 'ProductController@editProduct');
+
+Route::post('/formProduct/{id}/update', 'ProductController@editProduct');
 
 //Function
 

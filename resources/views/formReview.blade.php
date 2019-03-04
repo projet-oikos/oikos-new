@@ -9,6 +9,14 @@
     {{ csrf_field() }}
 
     <div>
+        <input type="text" name="brand" placeholder="Form review">
+    </div>
+
+    <div>
+        <input type="text" name="product" placeholder="Form review">
+    </div>
+
+    <div>
         <input type="text" name="review" placeholder="Form review">
     </div>
 

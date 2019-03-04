@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+use App\Brand;
 use App\Review;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -33,17 +34,43 @@ class ProductController extends Controller
 
     }
 
-    public function createReview() {                                                                                    //Fonction pour le formulaire de cration des reviews
-    //        $anyreview = Review::all();
-        return view('review.create');                                                                              //Affiche le formulaire au client
+    public function createProduct() {                                                                                   //Fonction pour le formulaire de cration de nouveau produit
+        $anybrand = Brand::all();
+        return view('formProduct', ['anybrand'=>$anybrand]);                                                                                //Affiche le formulaire a l'admin
     }
 
-    public function store() {                                                                                           //Fonction pour le formulaire qui vas stocker les review creer via le formulaire
-        $review = new Review();
-        $review->review = request('review');
-        $review->note = request('note');
-        $review->save();
-        $anyreview = Review::all();
-        return view('anyreview',  ['anyreview' => $anyreview]);
+    private function storeImage(){
+
+        $file = $request->file('image1');
+        $file->move('img\\' . $Brand,$file->getClientOriginalName());
+    }
+
+    public function storeProduct(Request $request) {                                                                     //Fonction pour le formulaire qui vas stocker les donnees
+
+        $product = new Product();
+        $product->brand_id = request('brand');
+        $product->name = request('name');
+        $product->price = request('price');
+        $product->image1 = request('image1');
+        $product->image2 = request('image2');
+        $product->image3 = request('image3');
+        $product->image4 = request('image4');
+        $product->video = request('video');
+        $product->description = request('description');
+        $product->pdf = request('pdf');
+        $product->stock = request('stock');
+        $product->category = request('category');
+
+        $product->save();
+
+    }
+
+    public function editProduct($id) {                                                                                    //Fonction pour le formulaire qui vas stocker les review creer via le formulaire
+        $product = Product::find($id);
+
+        return view('formProduct');
+
+        $product->modifiate($id);
+
     }
 }
