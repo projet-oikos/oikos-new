@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="panel panel-default col-md-8">
+    <div class="panel panel-default col-md-8 center-div">
         <div class="panel-heading">
             <h2 class="panel-title">Ajouter une Marque</h2>
         </div>
