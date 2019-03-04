@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 
 class PanierController extends Controller
 {
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function viewPanier() {
         $panier = array(
             array('nom' => 'Aerogarden', 'prix' => 189, 'image' => asset('img/aerogarden/aerogarden-01.jpg'), 'accroche' => 'AeroGarden avec kit de graine de plante', 'description' => 'Jardin de l’année avec le AeroGarden Mircale-Gro. Faites pousser des plantes fraiches, des légumes, des sales vertes, des fleurs et bien plus ! Le AeroGarden est un système de jardinage en intérieur sans sol qui fait pousser des plantes 5 fois plus rapidement que dans le sol.'),
