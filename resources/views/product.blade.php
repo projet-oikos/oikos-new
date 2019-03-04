@@ -3,45 +3,41 @@
 
 @foreach($anyproduct as $product)
 <div class="container center">
-    <h1>{{$product -> name}}</h1><br>
+    <h1>{{$product -> name}}</h1><br>                                                                                   <!-- Affiche le nom du product -->
 
     <div>
 
         <div class="container">
 
-
         </div>
-        <!-- /.col-lg-3 -->
 
         <div class="col-lg-12">
 
             <div class="container">
                 <div class="bd-example">
-                    <div id="carouselExampleCaptions" class="carousel slide carousel-fade " data-interval="false">                             <!-- DEBUT CAROUSSEL -->
+                    <div id="carouselExampleCaptions" class="carousel slide carousel-fade " data-interval="false">      <!-- DEBUT CAROUSSEL -->
                         <ol class="carousel-indicators">
-                            <li data-target="#carouselExampleCaptions" data-slide-to="photo-1"></li>
-                            <li data-target="#carouselExampleCaptions" data-slide-to="photo-2"></li>
-                            <li data-target="#carouselExampleCaptions" data-slide-to="photo-3"></li>
-                            <li data-target="#carouselExampleCaptions" data-slide-to="photo-4"></li>
-                            <li data-target="#carouselExampleCaptions" data-slide-to="photo-5"></li>
+                            <li data-target="#carouselExampleCaptions" data-slide-to="photo-1"></li>                    <!-- Creation du  SLIDE 1 -->
+                            <li data-target="#carouselExampleCaptions" data-slide-to="photo-2"></li>                    <!-- Creation du  SLIDE 2 -->
+                            <li data-target="#carouselExampleCaptions" data-slide-to="photo-3"></li>                    <!-- Creation du  SLIDE 3 -->
+                            <li data-target="#carouselExampleCaptions" data-slide-to="photo-4"></li>                    <!-- Creation du  SLIDE 4 -->
+                            <li data-target="#carouselExampleCaptions" data-slide-to="video-1"></li>                    <!-- Creation du  SLIDE 5 -->
                         </ol>
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="{{$product -> image1}}" class="image" alt="photo-1">   <!-- 1 SLIDE -->
+                                <img src="{{$product -> image1}}" class="image" alt="photo-1">                          <!-- Insert image1 dans 1 SLIDE PHOTO -->
                             </div>
                             <div class="carousel-item">
-                                <img src="{{$product -> image2}}" class="image" alt="photo-2">   <!-- 2 SLIDE -->
+                                <img src="{{$product -> image2}}" class="image" alt="photo-2">                          <!-- Insert image2 dans 2 SLIDE PHOTO -->
                             </div>
                             <div class="carousel-item">
-                                <img src="{{$product -> image3}}" class="image" alt="photo-3">   <!-- 3 SLIDE -->
+                                <img src="{{$product -> image3}}" class="image" alt="photo-3">                          <!-- Insert image3 dans 3 SLIDE PHOTO -->
                             </div>
                             <div class="carousel-item">
-                                <img src="{{$product -> image4}}" class="image" alt="photo-4">   <!-- 4 SLIDE -->
+                                <img src="{{$product -> image4}}" class="image" alt="photo-4">                          <!-- Insert image4 dans 4 SLIDE PHOTO -->
                             </div>
                             <div class="carousel-item">
-                                <embed width="1100" height="600" src="{{$product -> video}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>   <!-- 3 SLIDE -->
-
-
+                                <embed width="1100" height="600" src="{{$product -> video}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>   <!-- Insert video dans 5 SLIDE VIDEO -->
 
                             </div>
                         </div>
@@ -57,8 +53,8 @@
                 </div>
                 <div class="card-body">
 
-                    <h4>€ {{$product -> price}}</h4>
-                    <a href="#" class="btn colorBtn btn-lg">Ajout Panier</a>
+                    <h4>€ {{$product -> price}}</h4>                                                                    <!-- affiche le prix du produit -->
+                    <a href="#" class="btn colorBtn btn-lg">Ajout Panier</a>                                            <!-- Bouton ajout au panier -->
                 </div>
             </div>
             <div class="card card-outline-secondary my-4">
@@ -66,7 +62,7 @@
                     Description Produit
                 </div>
                 <div class="card-body">
-                    <strong><p>{{$product -> description}}</p></strong>
+                    <strong><p>{{$product -> description}}</p></strong>                                                 <!-- affiche la description du produit -->
                     <hr>
 @endforeach
 
@@ -74,28 +70,28 @@
                         <div class="card-header">
                             Avis Client
                         </div>
-                        <div class="card-body">
-                            <p>{{$review -> review}}</p>
-                            <span class="heading">Note Client</span>                                        <!-- etoile note -->
+                        <div class="card-body">                                                                         <!-- encart avis client / etoile / note -->
+                            <p>{{$review -> review}}</p>                                                                <!-- Affiche l'avis client -->
+                            <span class="heading">Note Client</span>
                             <span class="fa fa-star checked"></span>
                             <span class="fa fa-star checked"></span>
                             <span class="fa fa-star checked"></span>
                             <span class="fa fa-star"></span>
                             <span class="fa fa-star"></span>
-                            <p>Note de {{$review -> note}}  basée sur  {{$review -> id}}  avis.</p>
-                            <small class="text-muted">Posté par Marcel le . {{$review -> date}}</small>
+                            <p>Note de {{$review -> note}}  basée sur  {{$review -> id}}  avis.</p>                     <!-- Affiche la note de l'avis client -->
+                            <small class="text-muted">Posté par Marcel le . {{$review -> date}}</small>                 <!-- Affiche la date de l'avis client -->
                             <hr>
                         </div>
                 </div>
             </div>
 
-            <a href="{{$product ->pdf}}" class="btn colorBtn btn-lg end">Fiche Technique (PDF)</a><br>              <!-- LIEN PDF -->
+            <a href="{{$product ->pdf}}" class="btn colorBtn btn-lg end">Fiche Technique (PDF)</a><br>                  <!-- LIEN PDF vers fiche technique du produit -->
 
         </div>
 
     </div>
-    @endforeach
+    @endforeach                                                                                                         <!-- Fin de boucle froeach -->
 </div>
-    <script src="{{asset('js/app.js')}}" crossorigin="anonymous"></script>
-    <script src="{{asset('js/bootstrap.js')}}" crossorigin="anonymous"></script>      <!-- SCRIPT JAVA BOOTSTRAP -->
+    <script src="{{asset('js/app.js')}}" crossorigin="anonymous"></script>                                              <!-- SRIPT ??? -->
+    <script src="{{asset('js/bootstrap.js')}}" crossorigin="anonymous"></script>                                        <!-- SCRIPT JAVA BOOTSTRAP -->
 @endsection

@@ -33,6 +33,6 @@ class Product extends Model
     }
 
     public function reviews(){
-        return $this->hasMany('App\Review');
+        return $this->hasMany('App\Review');                                                                    // Methode qui affiche les reviews liee au product
     }
 }
