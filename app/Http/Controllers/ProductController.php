@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Product;
 use App\Review;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -16,19 +17,25 @@ class ProductController extends Controller
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     public function viewProduct(){
+      $id = request()->route('id');
+
+       $anyproduct = Product::all();
+      // dd($anyproduct);
+       $anyreview = review::all();
 
 
         if ($id) {
-            $anyreview = Review::where('id', $id)->get();
+            $anyproduct = Product::where('id', $id)->get();
         } else {
-            $anyproduct = product::all();
+            $anyproduct = Product::all();
         }
         return view('product',['anyproduct' => $anyproduct , 'anyreview' => $anyreview ]);
 
 
     }
 
-    public function create() {
+    public function createReview() {
+    //        $anyreview = Review::all();
         return view('review.create');
     }
 
@@ -38,6 +45,6 @@ class ProductController extends Controller
         $review->note = request('note');
         $review->save();
         $anyreview = Review::all();
-        return view('anyreview.index',  ['anyreview' => $anyreview = Review::all()]);
+        return view('anyreview',  ['anyreview' => $anyreview]);
     }
 }

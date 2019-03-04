@@ -8,11 +8,13 @@ class Review extends Model
 {
     protected $table = 'review';
     protected $fillable = [
-        'review', 'note'
+        'review',
+        'note',
+        'date'
     ];
-    public $timestamps = true;
+//    public $timestamps = true;
     public function viewReview()
     {
-        return $this->hasMany('App\Review');
+        return $this->belongsTo('App\Product');
     }
 }

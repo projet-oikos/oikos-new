@@ -15,6 +15,7 @@ class CreateAddressTable extends Migration
     public function up()
     {
         Schema::create('address', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
             $table->unsignedInteger('number');
             $table->string('address');
@@ -22,16 +23,17 @@ class CreateAddressTable extends Migration
             $table->unsignedInteger('nap');
             $table->string('city');
             $table->string('country');
-            //$table->unsignedInteger('idUtilisateur');
+            $table->unsignedInteger('customer_id');
             $table->timestamps();
         });
 
-       // Schema::table('address', function (Blueprint $table) {
-        //    $table->foreign('idUtilisateur')->references('id')->on('utilisateur');
-       // });
+        Schema::table('address', function (Blueprint $table) {
+            $table->foreign('customer_id')->references('id')->on('customer');
+        });
 
 
         DB::table('address')->insert([
+            'customer_id' => 1,
             'number' => 12,
             'address' => 'rue de la paix',
             'complement' => '',
@@ -40,9 +42,8 @@ class CreateAddressTable extends Migration
             'country' => 'France',
         ]);
 
-
-
         DB::table('address')->insert([
+            'customer_id' => 1,
             'number' => 49,
             'address' => 'rue des jonquilles',
             'complement' => '',
@@ -52,6 +53,7 @@ class CreateAddressTable extends Migration
         ]);
 
         DB::table('address')->insert([
+            'customer_id' => 1,
             'number' => 32,
             'address' => 'rue pouet pouet',
             'complement' => '',
@@ -61,6 +63,7 @@ class CreateAddressTable extends Migration
         ]);
 
         DB::table('address')->insert([
+            'customer_id' => 1,
             'number' => 3,
             'address' => 'allée des bolos',
             'complement' => '',
@@ -70,6 +73,7 @@ class CreateAddressTable extends Migration
         ]);
 
         DB::table('address')->insert([
+            'customer_id' => 1,
             'number' => 73,
             'address' => 'avenue Jean Moulin',
             'complement' => '',
@@ -79,6 +83,7 @@ class CreateAddressTable extends Migration
         ]);
 
         DB::table('address')->insert([
+            'customer_id' => 1,
             'number' => 24,
             'address' => 'rue pipo',
             'complement' => '',
@@ -88,6 +93,7 @@ class CreateAddressTable extends Migration
         ]);
 
         DB::table('address')->insert([
+            'customer_id' => 1,
             'number' => 15,
             'address' => 'rue des accacias',
             'complement' => '',
@@ -98,6 +104,7 @@ class CreateAddressTable extends Migration
 
 
         DB::table('address')->insert([
+            'customer_id' => 1,
             'number' => 1652,
             'address' => 'avenue de Bamako',
             'complement' => '',
@@ -107,6 +114,7 @@ class CreateAddressTable extends Migration
         ]);
 
         DB::table('address')->insert([
+            'customer_id' => 1,
             'number' => 62,
             'address' => 'rue Henri Lapince',
             'complement' => '',
@@ -116,6 +124,7 @@ class CreateAddressTable extends Migration
         ]);
 
         DB::table('address')->insert([
+            'customer_id' => 1,
             'number' => 8,
             'address' => 'impasse de la villette',
             'complement' => '',

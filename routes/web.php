@@ -1,4 +1,4 @@
-php<?php
+<?php
 
 /*
 |--------------------------------------------------------------------------
@@ -10,28 +10,48 @@ php<?php
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/product', 'ProductController@index');
+
+//Product
+
+Route::get('/product','ProductController@viewProduct');
 
 Route::post('/product', 'ProductController@store');
 
 Route::get('/product/create', 'ProductController@create');
 
-Route::get('/product', 'ReviewController@viewReview');
+Route::get('/product/{id}', 'ProductController@viewProduct');
 
-Route::get('/catalog', 'CatalogController@viewCatalog');
+Route::get('/catalog', 'CatalogController@viewCatalog' );
+
+Route::get('/database-product','ProductController@viewDatabase');
+
+//Review
+
+Route::get('/review/{id}', 'ProductController@viewProduct');
+
+//Panier
 
 Route::get('/panier', 'PanierController@viewPanier');
 
-Route::get('/product', 'ProductController@viewProduct');
+//Home
 
 Route::get('/home', 'UserController@index');
 
+Route::get('/home', 'UserController@index');
+
+//Customer
+
 Route::get('/', 'UserController@index');
+
+Route::get('/customer', 'CustomerController@index');
+
+//form
 
 Route::get('/formReview', 'FormsController@create');
 
 Route::post('/formReview', 'FormsController@display');
 
+//Function
 
 Route::get('/header', function () {
     return view('header_oikos');
@@ -54,13 +74,6 @@ Route::get('/about_us', function () {
 });
 
 
-Route::get('/product', 'ProductController@viewProduct');
+// Catalog
+Route::get('/catalog', 'CatalogController@viewCatalog');
 
-Route::get('/database-product', 'ProductController@viewDatabase');
-
-
-Route::get('/home', 'UserController@index');
-Route::get('/', 'UserController@index');
-
-
-Route::get('/customer', 'CustomerController@index');

@@ -16,22 +16,23 @@ class CreateOrderTable extends Migration
     public function up()
     {
         Schema::create('order', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
             $table->dateTime('orderDate');
             $table->dateTime('billDate');
-            $table->unsignedInteger('iduser');
+            $table->unsignedInteger('customer_id');
             $table->timestamps();
         });
 
         Schema::table('order', function (Blueprint $table) {
-            $table->foreign('iduser')->references('id')->on('user');
+            $table->foreign('customer_id')->references('id')->on('customer');
         });
 
 
         DB::table('order')->insert([
             'orderDate' => Carbon::today(),
             'billDate' => Carbon::today(),
-            'iduser' => '1'
+            'customer_id' => '1'
         ]);
     }
 
