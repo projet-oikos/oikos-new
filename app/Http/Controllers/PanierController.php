@@ -31,6 +31,12 @@ class PanierController extends Controller
         return view('panier', ['panier'=> $panier, 'total' => $totauxPanier['total'], 'total_ht'=> $totauxPanier['total_ht'], 'livraison' => $livraison, 'total_tva'=> $totauxPanier['total_tva']]);
     }
 
+    /**
+     * @param $panier
+     * @param $livraison
+     * @param $tva
+     * @return array
+     */
     public function calculPanier($panier, $livraison, $tva) {
         $temp = 0;
         $total_ht = 0;
@@ -45,6 +51,9 @@ class PanierController extends Controller
         return ['total' => $total, 'total_tva' => $total_tva, 'total_ht' => $total_ht];
     }
 
+    /**
+     *
+     */
     public function updatePanier() {
         request('quantity');
     }
