@@ -16,7 +16,10 @@
     <div class="row">
         <div class="col-md-8">
             <div class="well well-sm">
-                <form>
+                <form method="POST" action="/contact">
+
+                    {{ csrf_field() }}
+
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">

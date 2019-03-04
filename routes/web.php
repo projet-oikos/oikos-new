@@ -63,3 +63,7 @@ Route::get('/catalog', 'CatalogController@viewCatalog');
 
 Route::get('/catalog', 'CatalogController@viewCatalog' );
 
+// Contact
+Route::get('/contact', 'ContacController@show' );
+
+
