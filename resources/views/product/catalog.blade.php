@@ -12,7 +12,7 @@
 
     <div class="card">
         <div class="card-body">
-            <h2 class="card-title">{{$cardProduct->brand->name}} {{$cardProduct->name}}</h2><br>
+            <h2 class="card-title"> {{--{{$cardProduct->brand->name}} --}} {{$cardProduct->name}}</h2><br>
 
             <p class="card-text">{{$cardProduct->description}}</p><br>
         <div class="d-flex justify-content-between">
@@ -30,11 +30,7 @@
     </div>
 </div><br>
 </div>
+
 @endforeach
-
-
-
-
-
 
 @endsection
