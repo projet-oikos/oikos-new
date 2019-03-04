@@ -14,6 +14,7 @@ class CreateCustomerTable extends Migration
     public function up()
     {
         Schema::create('customers', function (Blueprint $table) {
+                $table->engine='InnoDB';
                 $table->increments('id');
                 $table->string('lastname');
                 $table->string('name');
@@ -24,6 +25,11 @@ class CreateCustomerTable extends Migration
                 $table->unsignedInteger('billing_address_id');
                 $table->timestamps();
 
+        });
+
+        Schema::table('customer', function (Blueprint $table) {
+            $table->foreign('billing_address_id')->references('id')->on('address');
+            $table->foreign('delivery_address_id')->references('id')->on('address');
         });
 
 
