@@ -4,28 +4,29 @@
 
     <div class="panel panel-default col-md-8 center-div">
         <div class="panel-heading">
-            <h2 class="panel-title">Ajouter une Marque</h2>
+            <h2 class="panel-title">Editer la marque : {{ $brand->name }}</h2>
         </div>
         <div class="panel-body">
-            <form class="" action="/home" method="post" enctype="multipart/form-data">
+            <form class="" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="form-group">
                     <label for="title">Brand name</label>
-                    <input type="text" class="form-control" name="name" placeholder="title">
+                    <input type="text" class="form-control" name="name" value="{{$brand->name}}">
                 </div>
                 <div class="form-group">
                     <label for="title">Title de banner</label>
-                    <input type="text" class="form-control" name="title" placeholder="title">
+                    <input type="text" class="form-control" name="title" value="{{$brand->title}}">
                 </div>
                 <div class="form-group">
                     <label for="content">Subtitle de banner</label>
-                    <textarea name="subtitle" id="content" class="form-control" rows="8" cols="80"></textarea>
+                    <input type="text" class="form-control" name="subtitle" value="{{$brand->subtitle}}">
                 </div>
                 <div class="form-group">
                     <label for="photo">Background image</label>
-                    <input type="file" name="image" class="form-control-file" id="image">
+                    <input type="text" class="form-control" name="image_url" value="{{$brand->image}}">
+                    <input type="file" name="image" class="form-control-file" id="image" >
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Update</button>
             </form>
         </div>
     </div>
