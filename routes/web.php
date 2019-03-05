@@ -30,7 +30,8 @@ Route::post('/product', 'ReviewController@store');
 
 //Panier
 
-Route::get('/panier', 'PanierController@viewPanier');
+Route::get('/panier/{id}', 'PanierController@viewPanier');
+
 
 //Home
 
