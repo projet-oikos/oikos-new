@@ -34,16 +34,12 @@ Route::get('/panier', 'PanierController@viewPanier');
 //Home
 
 Route::get('/home', 'HomeController@show');
-
 Route::get('/', 'HomeController@show');
 
-
-
 Route::get('/brand/brandlist', 'HomeController@brandList');
-
-
 Route::get('/brand/create', 'HomeController@create');
 Route::post('/home', 'HomeController@store');
+
 Route::get('/brand/{id}/edit', 'HomeController@edit');
 Route::post('/brand/{id}/edit', 'HomeController@update');
 Route::get('/brand/{id}/delete', 'HomeController@destroy');
