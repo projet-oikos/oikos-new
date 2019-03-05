@@ -41,6 +41,10 @@ class CustomerController extends Controller
 
     }
 
+    public function view($id){
+        $customer = Post::where('id', $id)->firstOrFail();
+        return view('customer', compact('customer'));
+    }
 
 }
 

@@ -70,7 +70,8 @@ Route::post('/formProduct/{id}/update', 'ProductController@editProduct');
 Route::get('/customerForm', 'CustomerController@createCustomer');
 
 Route::post('/accountCreated', 'CustomerController@storeCustomer');
-//Route::post('/accountCreated', 'CustomerController@accountCreated');
+
+Route::get('/customer/{id}', 'CustomerController@view');
 
 //Function
 
