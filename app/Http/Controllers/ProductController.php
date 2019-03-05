@@ -18,10 +18,10 @@ class ProductController extends Controller
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     public function viewProduct(){
-      $id = request()->route('id');                                                                              // definit l'id par la route utilise
+        $id = request()->route('id');                                                                              // definit l'id par la route utilise
 
-       $anyproduct = Product::all();
-       $anyreview = review::all();
+        $anyproduct = Product::all();
+        $anyreview = review::all();
 
 
         if ($id) {

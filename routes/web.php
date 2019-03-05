@@ -25,7 +25,8 @@ Route::get('/database-product', 'ProductController@viewDatabase');
 
 //Review
 
-Route::get('/review/{id}', 'ProductController@viewProduct');
+
+Route::post('/product', 'ReviewController@store');
 
 //Panier
 
@@ -49,20 +50,14 @@ Route::get('/brand/{id}/edit', 'HomeController@edit') ->name('brand.edit');
 Route::post('/brand/{id}/edit', 'HomeController@update');
 
 
-
-
-
-
-
 //Customer
 
 Route::get('/customer', 'CustomerController@index');
 
 //form
 
-Route::get('/formReview', 'FormsController@create');
 
-Route::post('/formReview', 'FormsController@store');
+Route::post('/product/{id}', 'ReviewController@store');
 
 Route::get('/formProduct', 'ProductController@createProduct');
 
@@ -87,8 +82,4 @@ Route::get('/about_us', 'AboutUsController@show');
 Route::get('/catalog', 'CatalogController@viewCatalog');
 
 Route::get('/catalog', 'CatalogController@viewCatalog');
-
-// Contact
-Route::get('/contact', 'ContacController@show' );
-
 
