@@ -5,7 +5,18 @@
     <div class="panel panel-default col-md-8 center-div">
         <div class="panel-heading">
             <h2 class="panel-title">Ajouter une Marque</h2>
+
         </div>
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
         <div class="panel-body">
             <form class="" action="/home" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
