@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Brand;
+use App\Http\Requests\StoreBrand;
 use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -27,8 +28,9 @@ class HomeController extends Controller
         return view('home.create');
     }
 
-    public function store(Request $request)
+    public function store(StoreBrand $request)
     {
+
 
         $newBrand = self::cleanString(request('name'));
 
@@ -82,12 +84,12 @@ class HomeController extends Controller
 
         $brandName = $request->input('name');
         $brandTitle = $request->input('title');
-        $brandSubtitle= $request->input('subtitle');
+        $brandSubtitle = $request->input('subtitle');
         $file = $request->file('image');
 
         $brand = Brand::find($id);
 
-        if($file){
+        if ($file) {
             $file->move('img\\' . $brandName, $file->getClientOriginalName());
             $brandImage = 'img/' . $brandName . '/' . $file->getClientOriginalName();
             $brand->image = $brandImage;
@@ -98,10 +100,11 @@ class HomeController extends Controller
         $brand->subtitle = $brandSubtitle;
         $brand->save();
 
-        return redirect('brand/'. $id . '/edit');
+        return redirect('brand/' . $id . '/edit');
     }
 
-    public function destroy($id){
+    public function destroy($id)
+    {
         $brand = Brand::find($id);
         $brand->delete();
         return redirect('brand/brandlist');
