@@ -5,7 +5,9 @@
     <!-- We will create one brand banner with each brand for our home page -->
 
     <div class="content col">
-        <table id="dtBasicExample" class="table table-striped table-bordered table-sm col-md-8 center-div" cellspacing="0" width="100%">
+        <h1 class="text-center mt-5 mb-4">Marques dans notre website</h1>
+        <a href="{{action('HomeController@create')}}" class="btn btn-success">Create une nouvelle marque<i class="fas fa-plus-circle"></i></a>
+        <table id="dtBasicExample" class="table table-striped table-bordered table-sm col-md-8 center-div mb-5" cellspacing="0" width="100%">
             <thead>
             <tr>
                 <th class="th-sm">Name
@@ -27,7 +29,7 @@
                     <td>{{$brand->title}}</td>
                     <td>{{$brand->subtitle}}</td>
                     <td>{{$brand->image}}</td>
-                    <td><a href="{{action('HomeController@edit', $brand->id)}}" class="btn btn-info">Edit</a>      <a href="{{action('HomeController@edit', $brand->id)}}" class="btn btn-info">Suprimer</a></td>
+                    <td class="text-center"> <a href="{{action('HomeController@edit', $brand->id)}}" class="btn btn-info"><i class="fas fa-edit"></i></a>      <a href="{{action('HomeController@destroy', $brand->id)}}" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a></td>
                 </tr>
             @endforeach
             </tbody>

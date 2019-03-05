@@ -73,7 +73,6 @@ class HomeController extends Controller
     public function edit($id)
     {
         $brand = Brand::find($id);
-        // $brands = Brand::all();
         return view('home.edit', compact('brand'));
     }
 
@@ -100,6 +99,12 @@ class HomeController extends Controller
         $brand->save();
 
         return redirect('brand/'. $id . '/edit');
+    }
+
+    public function destroy($id){
+        $brand = Brand::find($id);
+        $brand->delete();
+        return redirect('brand/brandlist');
     }
 }
 

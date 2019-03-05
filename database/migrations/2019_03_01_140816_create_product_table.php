@@ -32,13 +32,13 @@ class CreateProductTable extends Migration
             $table->float('weight');
             $table->float('delivery');
             $table->string('category');
-            $table->unsignedInteger('brand_id');
+            $table->unsignedInteger('brand_id')->nullable();
             $table->unsignedInteger('promo_id');
             $table->timestamps();
         });
 
         Schema::table('product', function (Blueprint $table) {
-            $table->foreign('brand_id')->references('id')->on('brand');
+            $table->foreign('brand_id')->references('id')->on('brand')->onDelete('set null');
         });
 
         Schema::table('product', function (Blueprint $table) {
