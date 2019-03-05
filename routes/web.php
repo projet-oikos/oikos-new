@@ -29,7 +29,8 @@ Route::get('/review/{id}', 'ProductController@viewProduct');
 
 //Panier
 
-Route::get('/panier', 'PanierController@viewPanier');
+Route::get('/panier/{id}', 'PanierController@viewPanier');
+
 
 //Home
 

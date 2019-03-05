@@ -7,10 +7,10 @@ use Illuminate\Http\Request;
 class ContactController extends Controller
 {
     public function show(){
-        return view('contact');
+        return view('contact.contact');
     }
-}
 
     public function create(){
         return view(client_message.create);
+}
 }
