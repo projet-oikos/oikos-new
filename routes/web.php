@@ -64,6 +64,10 @@ Route::get('/catalog', 'CatalogController@viewCatalog');
 Route::get('/catalog', 'CatalogController@viewCatalog' );
 
 // Contact
-Route::get('/contact', 'ContacController@show' );
+Route::get('/contact', 'ContactController@show' );
+Route::post('/contact', 'ContactController@store');
 
+// Newsletter
+Route::get('/newsletter/subscribingnewsletter', 'SubscribingNewsletterController@show');
+Route::get('/merci', 'SubscribingNewsletterController@merci');
 

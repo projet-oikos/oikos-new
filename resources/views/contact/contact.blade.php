@@ -25,7 +25,7 @@
                             <div class="form-group">
                                 <label for="name">
                                    Prénom Nom </label>
-                                <input type="text" class="form-control" id="name" placeholder="Prénom Nom" required="required" />
+                                <input name="name" type="text" class="form-control" id="name" placeholder="Prénom Nom" required="required" />
                             </div>
                             <div class="form-group">
                                 <label for="email">
@@ -33,7 +33,7 @@
                                 <div class="input-group">
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
                                 </span>
-                                    <input type="email" class="form-control" id="email" placeholder="email" required="required" /></div>
+                                    <input name="email" type="email" class="form-control" id="email" placeholder="email" required="required" /></div>
                             </div>
                             <div class="form-group">
                                 <label for="subject">
