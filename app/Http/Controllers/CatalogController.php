@@ -15,7 +15,7 @@ class CatalogController extends Controller
          *  $catalog = DB::select('select * from product' );
          */
 
-        $catalog = Product::all();
+        $catalog = Product::all();                                            ///////////////////////////    Le catalogue doit montrer tout les produits       //////////////////////////////////////////////////
 
         return view('product.catalog', ["catalog" => $catalog]);
     }
