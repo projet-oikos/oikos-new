@@ -25,16 +25,16 @@
                         </ol>
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="{{$product -> image1}}" class="image" alt="photo-1">                          <!-- Insert image1 dans 1 SLIDE PHOTO -->
+                                <img src="{{asset($product -> image1)}}" class="image" alt="photo-1">                          <!-- Insert image1 dans 1 SLIDE PHOTO -->
                             </div>
                             <div class="carousel-item">
-                                <img src="{{$product -> image2}}" class="image" alt="photo-2">                          <!-- Insert image2 dans 2 SLIDE PHOTO -->
+                                <img src="{{asset($product -> image2)}}" class="image" alt="photo-2">                          <!-- Insert image2 dans 2 SLIDE PHOTO -->
                             </div>
                             <div class="carousel-item">
-                                <img src="{{$product -> image3}}" class="image" alt="photo-3">                          <!-- Insert image3 dans 3 SLIDE PHOTO -->
+                                <img src="{{asset($product -> image3)}}" class="image" alt="photo-3">                          <!-- Insert image3 dans 3 SLIDE PHOTO -->
                             </div>
                             <div class="carousel-item">
-                                <img src="{{$product -> image4}}" class="image" alt="photo-4">                          <!-- Insert image4 dans 4 SLIDE PHOTO -->
+                                <img src="{{asset($product -> image4)}}" class="image" alt="photo-4">                          <!-- Insert image4 dans 4 SLIDE PHOTO -->
                             </div>
                             <div class="carousel-item">
                                 <embed width="1100" height="600" src="{{$product -> video}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>   <!-- Insert video dans 5 SLIDE VIDEO -->
@@ -66,10 +66,11 @@
                     <hr>
 @endforeach
 
-                    @foreach($product->reviews()->get() as $review)
+
                         <div class="card-header">
                             Avis Client
                         </div>
+                    @foreach($product->reviews()->get() as $review)
                         <div class="card-body">                                                                         <!-- encart avis client / etoile / note -->
                             <p>{{$review -> review}}</p>                                                                <!-- Affiche l'avis client -->
                             <span class="heading">Note Client</span>
@@ -82,6 +83,7 @@
                             <small class="text-muted">Posté par Marcel le . {{$review -> date}}</small>                 <!-- Affiche la date de l'avis client -->
                             <hr>
                         </div>
+                    @endforeach
                 </div>
             </div>
 
@@ -90,7 +92,39 @@
         </div>
 
     </div>
-    @endforeach                                                                                                         <!-- Fin de boucle froeach -->
+
+<!-- Fin de boucle froeach -->
+    <h3>Laisser un avis</h3>
+    <form method="POST" action="/product" enctype="multipart/form-data">
+
+        {{ csrf_field() }}
+
+
+        <div>
+            <label>Votre avis</label>
+
+            <textarea type="text" name="review" ></textarea>
+        </div>
+
+        <div>
+            <label>Votre Note</label>
+
+            <select name="note" >
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+
+        </div>
+
+        <div>
+            <input type="hidden" name="id" value="{{$product->id}}">
+            <button type="submit">Envoyé mon avis</button>
+        </div>
+    </form>
 </div>
     <script src="{{asset('js/app.js')}}" crossorigin="anonymous"></script>                                              <!-- SRIPT ??? -->
     <script src="{{asset('js/bootstrap.js')}}" crossorigin="anonymous"></script>                                        <!-- SCRIPT JAVA BOOTSTRAP -->

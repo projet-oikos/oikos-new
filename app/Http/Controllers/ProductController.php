@@ -17,10 +17,10 @@ class ProductController extends Controller
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     public function viewProduct(){
-      $id = request()->route('id');                                                                              // definit l'id par la route utilise
+        $id = request()->route('id');                                                                              // definit l'id par la route utilise
 
-       $anyproduct = Product::all();
-       $anyreview = review::all();
+        $anyproduct = Product::all();
+        $anyreview = review::all();
 
 
         if ($id) {
@@ -33,17 +33,5 @@ class ProductController extends Controller
 
     }
 
-    public function createReview() {                                                                                    //Fonction pour le formulaire de cration des reviews
-    //        $anyreview = Review::all();
-        return view('review.create');                                                                              //Affiche le formulaire au client
-    }
 
-    public function store() {                                                                                           //Fonction pour le formulaire qui vas stocker les review creer via le formulaire
-        $review = new Review();
-        $review->review = request('review');
-        $review->note = request('note');
-        $review->save();
-        $anyreview = Review::all();
-        return view('anyreview',  ['anyreview' => $anyreview]);
-    }
 }

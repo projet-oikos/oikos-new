@@ -25,7 +25,8 @@ Route::get('/database-product','ProductController@viewDatabase');
 
 //Review
 
-Route::get('/review/{id}', 'ProductController@viewProduct');
+
+Route::post('/product', 'ReviewController@store');
 
 //Panier
 
@@ -43,9 +44,9 @@ Route::get('/customer', 'CustomerController@index');
 
 //form
 
-Route::get('/formReview', 'FormsController@create');
 
-Route::post('/formReview', 'FormsController@display');
+
+Route::post('/product/{id}', 'ReviewController@store');
 
 //Function
 
