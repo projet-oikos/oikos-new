@@ -28,7 +28,7 @@
                     <td>{{$brand->name}}</td>
                     <td>{{$brand->title}}</td>
                     <td>{{$brand->subtitle}}</td>
-                    <td>{{$brand->image}}</td>
+                    <td><img src="{{asset($brand->image)}}" width="300"></td>
                     <td class="text-center"> <a href="{{action('HomeController@edit', $brand->id)}}" class="btn btn-info"><i class="fas fa-edit"></i></a>      <a href="{{action('HomeController@destroy', $brand->id)}}" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a></td>
                 </tr>
             @endforeach

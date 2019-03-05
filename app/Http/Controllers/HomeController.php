@@ -15,7 +15,7 @@ class HomeController extends Controller
      */
     public function show()
     {
-
+        //$value = $request->session()->get('key');
 
         $brands = Brand::all();
 
@@ -30,8 +30,6 @@ class HomeController extends Controller
 
     public function store(StoreBrand $request)
     {
-
-
         $newBrand = self::cleanString(request('name'));
 
         $file = $request->file('image');
@@ -80,7 +78,6 @@ class HomeController extends Controller
 
     public function update(Request $request, $id)
     {
-
 
         $brandName = $request->input('name');
         $brandTitle = $request->input('title');
