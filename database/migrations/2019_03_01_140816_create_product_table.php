@@ -22,9 +22,9 @@ class CreateProductTable extends Migration
             $table->float('price');
             $table->float('tva');
             $table->string('image1');
-            $table->string('image2');
-            $table->string('image3');
-            $table->string('image4');
+            $table->string('image2')->nullable();
+            $table->string('image3')->nullable();
+            $table->string('image4')->nullable();
             $table->string('video');
             $table->longText('description');
             $table->string('pdf');
@@ -33,7 +33,7 @@ class CreateProductTable extends Migration
             $table->float('delivery');
             $table->string('category');
             $table->unsignedInteger('brand_id');
-            $table->unsignedInteger('promo_id');
+            $table->unsignedInteger('promo_id')->nullable();
             $table->timestamps();
         });
 

@@ -44,16 +44,19 @@ Route::get('/customer', 'CustomerController@index');
 //form
 
 Route::get('/formReview', 'FormsController@create');
-
 Route::post('/formReview', 'FormsController@store');
+Route::get('/productList', 'ProductController@productList');
+//Creer product
+Route::get('/createProduct', 'ProductController@createProduct');
+Route::post('/productList', 'ProductController@storeProduct');
+//Modifier product
+Route::get('/productEdit/{id}', 'ProductController@editProduct');
+Route::post('/product/{id}/edit', 'ProductController@storeProduct');
 
-Route::get('/formProduct', 'ProductController@createProduct');
 
-Route::post('/formProduct', 'ProductController@storeProduct');
-
-Route::get('/formProduct/{id}/edit', 'ProductController@editProduct');
-
-Route::post('/formProduct/{id}/update', 'ProductController@editProduct');
+//Destroy product
+Route::post('/product/{id}/edit', 'ProductController@updateProduct');
+Route::get('/product/{id}/delete', 'ProductController@destroyProduct');
 
 //Function
 
