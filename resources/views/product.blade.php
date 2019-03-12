@@ -95,7 +95,16 @@
 
 <!-- Fin de boucle froeach -->
     <h3>Laisser un avis</h3>
-    <form method="POST" action="/product" enctype="multipart/form-data">
+    @if ($errors->any())
+        <div class="alert alert-danger d-flex justify-content-center align-items-center">
+
+            @foreach ($errors->all() as $error)
+                <p>{{ $error }}</p>
+            @endforeach
+
+        </div>
+    @endif
+    <form method="POST" action="/product/{{$product->id}}" enctype="multipart/form-data">
 
         {{ csrf_field() }}
 
@@ -119,6 +128,7 @@
             </select>
 
         </div>
+
 
         <div>
             <input type="hidden" name="id" value="{{$product->id}}">

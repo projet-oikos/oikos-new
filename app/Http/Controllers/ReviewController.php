@@ -15,7 +15,11 @@ class ReviewController extends BaseController
 
 
     public function store(Request $request) {
+        $this->validate($request, [
+            'review' => 'required',
+            'note' => 'required',
 
+        ]);
         $review = new Review();
         $review->review = $request->input('review');
         $review->note = $request->input('note');
@@ -23,6 +27,8 @@ class ReviewController extends BaseController
         $review->customer_id = 1;
         $review->date = Carbon::today();
         $review->save();
+
+
 
         return redirect()->action('ProductController@viewProduct', ['id' => $request->input('id')]);
     }
