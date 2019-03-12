@@ -10,7 +10,9 @@ class Review extends Model
     protected $fillable = [
         'review',
         'note',
-        'date'
+        'date',
+        'produc_id',
+        'customer_id'
     ];
 //    public $timestamps = true;
     public function viewReview()

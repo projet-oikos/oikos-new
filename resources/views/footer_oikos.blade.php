@@ -10,7 +10,7 @@
     <div class="container">
         <div class="row text-center text-xs-center text-sm-left text-md-left">
             <div class="col-xs-12 col-sm-4 col-md-4">
-                <a href="{{url('/newsletter')}}"><h5>Newsletter</h5></a>
+                <a href="{{url('newsletter/subscribingnewsletter')}}"><h5>Newsletter</h5></a>
 
 
             </div>

@@ -35,6 +35,9 @@ class Product extends Model
         return $this->belongsTo('App\Brand');
     }
 
+    /////////////////////////////////////////     Un produit peut avoir plusieurs review     /////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
     public function reviews(){
         return $this->hasMany('App\Review');                                                                    // Methode qui affiche les reviews liees au product
     }

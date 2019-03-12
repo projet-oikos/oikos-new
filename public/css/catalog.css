@@ -7,8 +7,8 @@ h2 {
 .imgperso {
     max-width: 30% !important;
     max-height: 30% !important;
-    /*width: 30% !important;
-    height: 30% !important;                -> A voir pour l'affichage avec Google Chrome...*/
+    width: 30% !important;
+    height: 30% !important;               /* -> A voir pour l'affichage avec Google Chrome...*/
 }
 
 .btnColor{

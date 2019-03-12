@@ -38,7 +38,7 @@ class CreateProductTable extends Migration
         });
 
         Schema::table('product', function (Blueprint $table) {
-            $table->foreign('brand_id')->references('id')->on('brand');
+            $table->foreign('brand_id')->references('id')->on('brand')->onDelete('set null');
         });
 
         Schema::table('product', function (Blueprint $table) {
