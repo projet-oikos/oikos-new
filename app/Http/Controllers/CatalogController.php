@@ -15,16 +15,19 @@ class CatalogController extends Controller
          *  $catalog = DB::select('select * from product' );
          */
 
-        $catalog = Product::all();                                            ///////////////////////////    Le catalogue doit montrer tout les produits       //////////////////////////////////////////////////
+        $catalog = Product::all();
+        ///////////////////////////    Le catalogue doit montrer tout les produits       //////////////////////////////////////////////////
 
         return view('product.catalog', ["catalog" => $catalog]);
+    }
+
+    public function addToCart() {
+
+        
     }
 }
 
 
-//$address=Address::all();
-//dd($address);
 
-//return view('address', ["address" => $address]);
 
 

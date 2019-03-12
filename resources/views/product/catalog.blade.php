@@ -17,8 +17,10 @@
             <p class="card-text">{{$cardProduct->description}}</p><br>                      {{-- /////////////////       Description produit      ///////////////////////////////////////////////////////--}}
         <div class="d-flex justify-content-between">
 
-         <div>
-            <a href="/panier/{{$cardProduct->id}}" class="btn btnColor btn-lg">Acheter</a>
+         <div class="d-flex">
+             <form action="catalog" method="post" enctype="multipart/form-data" class="mr-2">
+                 <button type="submit" class="btn btnColor btn-lg">Acheter</button>
+             </form>
               <a href="/product/{{$cardProduct->id}}" class="btn btn-secondary btn-lg">Fiche complète</a>
            </div>
 
