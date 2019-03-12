@@ -37,13 +37,28 @@ class CustomerController extends Controller
 
 
         return view('customer.accountCreated');
-           // return view('accountCreated', ['customer' => $customer]);
 
     }
 
-    public function view($id){
-        $customer = Post::where('id', $id)->firstOrFail();
-        return view('customer', compact('customer'));
+    public function show()
+    {
+        $customer = Customer::all();
+
+        return view('customer.deleteCustomerForm', ['customer' => $customer]);
+    }
+
+    public function modifyCustomer()
+    {
+        $id = request('id');
+        $customer = customer::where('id', $id)->get();
+        return view('customer.customerForm', ['customer' => $customer]);
+
+    }
+
+    public function deleteCustomer($id) {
+        $customer = Customer::where($id);
+        $customer->delete();
+        return redirect('customer/customerForm');
     }
 
 }

@@ -69,9 +69,25 @@ Route::post('/formProduct/{id}/update', 'ProductController@editProduct');
 
 Route::get('/customerForm', 'CustomerController@createCustomer');
 
+Route::get('/customerForm/{id}', 'CustomerController@modifyCustomer');
+
 Route::post('/accountCreated', 'CustomerController@storeCustomer');
 
-Route::get('/customer/{id}', 'CustomerController@view');
+//Route::get('/customer/{id}', 'CustomerController@view');
+
+Route::get('/customer/deleteCustomerForm', 'CustomerController@show');
+Route::get('/customer/deleteCustomerForm/{id}', 'CustomerController@modifyCustomer');
+Route::post('/customerForm', 'CustomerController@createCustomer');
+
+Route::get('/customer/{id}/deleteCustomerForm', 'CustomerController@deleteCustomer');
+Route::post('/customer/{id}/deleteCustomerForm', 'CustomerController@deleteCustomer');
+
+Route::get('/customer/{id}/accountCreated', 'CustomerController@edit');
+
+Route::post('/customer/{id}/accountCreated', 'CustomerController@update');
+
+//Route::get('/customer/{id}/deleteCustomerForm', 'CustomerController@destroy');
+
 
 //Function
 
