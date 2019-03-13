@@ -5,8 +5,8 @@
     <!-- We will create one brand banner with each brand for our home page -->
 
     <div class="content col">
-        <h1 class="text-center mt-5 mb-4"><strong>Comptes utilisateurs></strong></h1>
-        <a href="{{action('HomeController@create')}}" class="btn btn-success">Créer un nouveau compte<i class="fas fa-plus-circle"></i></a>
+        <h1 class="text-center mt-5 mb-4">Marques dans notre website</h1>
+        <a href="{{action('BrandController')}}" class="btn btn-success">Create une nouvelle marque<i class="fas fa-plus-circle"></i></a>
         <table id="dtBasicExample" class="table table-striped table-bordered table-sm col-md-8 center-div mb-5" cellspacing="0" width="100%">
             <thead>
             <tr>
