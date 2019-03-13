@@ -39,7 +39,7 @@ class ProductController extends Controller
         return view('product.create', ['anybrand' => $anybrand]);                                                  //Affiche le formulaire a l'admin
     }
 
-    public function storeProduct(Request $request )
+    public function storeProduct(Request $request)
     {
                                                                                                                         //Fonction pour le formulaire qui vas stocker les donnees
         $brand = Brand::find(request('brand'));
@@ -107,43 +107,45 @@ class ProductController extends Controller
         $brand = Brand::find(request('brand'));
         $brandName = strtolower(str_replace(" ", "_", $brand->name));
         $product = Product::find($id);
-        $productName = $request->input('name');
-        $productPrice = $request->input('price');
+        $product->name = $request->input('name');
+        $product->price = $request->input('price');
 //        $file = $request->file('image');
 
         for ($i = 1; $i < 5; $i++) {                                                                                    //Boucle for qui vas parcourir les photos de mon formulaire
             $file = $request->file('image' . $i);
+
             if ($file) {
                 if ($i != null) {
-//                    $ext = $file->getClientOriginalExtension();
-//                    $productName = strtolower(str_replace(" ", "_", $product->name) . "_0" . $i . "." . $ext);
-//                    $file->move('img\\' . $brandName, $productName);
-                    $file->move('img\\' . $brandName, $file->getClientOriginalName());
-                    $productImage = 'img/' . $brandName . '/' . $file->getClientOriginalName();
-                    $product->image = $productImage;
+                    $ext = $file->getClientOriginalExtension();
+                    $newName = strtolower(str_replace(" ", "_", $product->name) . "_0" . $i . "." . $ext);
+                    $file->move('img\\' . $brandName, $newName);
 
                     switch ($i) {
                         case 1:
-                            $product->image1 = 'img/' . $brandName . '/' . $productName;
+                            $product->image1 = 'img/' . $brandName . '/' . $newName;
                             break;
                         case 2:
-                            $product->image2 = 'img/' . $brandName . '/' . $productName;
+                            $product->image2 = 'img/' . $brandName . '/' . $newName;
                             break;
                         case 3:
-                            $product->image3 = 'img/' . $brandName . '/' . $productName;
+                            $product->image3 = 'img/' . $brandName . '/' . $newName;
                             break;
                         case 4:
-                            $product->image4 = 'img/' . $brandName . '/' . $productName;
+                            $product->image4 = 'img/' . $brandName . '/' . $newName;
                             break;
                     }
-                    $product->name = $productName;
-                    $product->price = $productPrice;
-                    $product->save();
-                    return redirect('product/' . $id . '/edit');
-
                 }
             }
         }
+        $product->video =  $request->input('video');
+        $product->description =  $request->input('description');
+        $product->pdf =  $request->input('pdf');
+        $product->stock =  $request->input('stock');
+        $product->category =  $request->input('category');
+        $product->save();
+
+return redirect('productList');
+
     }
 
     /**
