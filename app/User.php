@@ -16,7 +16,9 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-         'email', 'password',
+        'email',
+        'password',
+        'is_admin'
     ];
 
     /**
@@ -25,11 +27,21 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password',
+        'remember_token',
     ];
 
-    public function customers(){
+    public function customers()
+    {
 
         return $this->hasOne('App\Customer');
     }
+
+    public function isAdmin()
+    {
+       return $this->is_admin;
+
+    }
+
+
 }
