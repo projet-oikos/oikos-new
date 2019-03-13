@@ -5,27 +5,39 @@
     <div class="panel panel-default col-md-8 center-div">
         <div class="panel-heading">
             <h2 class="panel-title">Ajouter une Marque</h2>
+
         </div>
+        @if ($errors->any())
+            <div class="alert alert-primary">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
         <div class="panel-body">
             <form class="" action="/home" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="form-group">
-                    <label for="title">Brand name</label>
-                    <input type="text" class="form-control" name="name" placeholder="title">
+                    <label for="title">Brand name *</label>
+                    <input type="text" class="form-control" name="name" placeholder="title" >
                 </div>
                 <div class="form-group">
-                    <label for="title">Title de banner</label>
-                    <input type="text" class="form-control" name="title" placeholder="title">
+                    <label for="title">Title de banner *</label>
+                    <input type="text" class="form-control" name="title" placeholder="title" >
                 </div>
                 <div class="form-group">
-                    <label for="content">Subtitle de banner</label>
-                    <textarea name="subtitle" id="content" class="form-control" rows="8" cols="80"></textarea>
+                    <label for="content">Subtitle de banner *</label>
+                    <textarea name="subtitle" id="content" class="form-control" rows="8" cols="80" ></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="photo">Background image</label>
-                    <input type="file" name="image" class="form-control-file" id="image">
+                    <label for="photo">Background image *</label>
+                    <input type="file" name="image" class="form-control-file" id="image" >
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <span>* Required</span><br>
+                <button type="submit" class="btn btn-primary mt-5">Submit</button>
             </form>
         </div>
     </div>

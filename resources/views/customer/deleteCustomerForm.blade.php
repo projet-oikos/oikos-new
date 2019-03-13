@@ -2,29 +2,117 @@
 
 @section('content')
 
-    <form action="{{ url('accountCreated') }}" method="POST">
-    {{ csrf_field() }}
+    <div class="content col">
+        <h1 class="text-center mt-5 mb-4">Pigeon de notre site</h1>
+        <a href="{{action('CustomerController@createCustomer')}}" class="btn btn-success">créer un nouveau pigeon<i class="fas fa-plus-circle"></i></a>
+        <table id="dtBasicExample" class="table table-striped table-bordered table-sm col-md-8 center-div mb-5" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th class="th-sm">Nom
+                </th>
+                <th class="th-sm">Prénom
+                </th>
+                <th class="th-sm">addresse de livraison
+                </th>
+                <th class="th-sm">addresse de facturation
+                </th>
+                <th class="th-sm">email
+                </th>
+                <th class="th-sm">téléphone
+                </th>
+                <th class="th-sm">mot de passe
+                </th>
+                <th class="th-sm">date de création
+                </th>
+                <th class="th-sm">dernière Maj
+                </th>
+            </tr>
+            </thead>
+            <tbody>
 
+            @foreach($customer as $test)
+                <tr>
+                    <td>{{$test->lastname}}</td>
+                    <td>{{$test->name}}</td>
+                    <td>{{$test->delivery_address_id}}</td>
+                    <td>{{$test->billing_address_id}}</td>
+                    <td>{{$test->email}}</td>
+                    <td>{{$test->telephone}}</td>
+                    <td>{{$test->password}}</td>
+                    <td>{{$test->created_at}}</td>
+                    <td>{{$test->updated_at}}</td>
+                    <td>{{$test->id}}</td>
+                    {{--<td class="text-center"> <a href="{{action('CustomerController@modifyCustomer', $id->id)}}" class="btn btn-info"><i class="fas fa-edit"></i></a></td>--}}
+                    {{--<td class="text-center"> <a href="{{action('CustomerController@deleteCustomer', $customer->id)}}" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a></td>--}}
+                </tr>
+            @endforeach
+            </tbody>
 
-        <body>
-
-        @foreach($anyCustomer as $customer)
-            <div class="post-container">
-                <h3>
-                    <a href="{{ URL::action('CustomerController@view', $customer->id) }}">{{ $customer->lastname}}, {{ $customer->name}}</a>
-                </h3>
-                <p>{{ $customer->email }}</p>
-                <i>{{ $customer->telephone }}</i>
-                <i>{{ $customer->password }}</i>
-                <i>{{ $customer->delivery_address_id }}</i>
-                <i>{{ $customer->billing_address_id}}</i>
-                <i>{{ $customer->created_at}}</i>
-                <i>{{ $customer->update_at}}</i>
-            </div>
-
-        @endforeach
-
-
-        </body>
+        </table>
+    </div>
 
 @endsection
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -20,7 +20,6 @@
                     <!-- We will create the products for each brand for our home page -->
 
 
-
                     @foreach($brand->products()->get() as $product)
                         <div class="card card-body productHome col-sm-3">
                             <div class="homeProductTitle">{{$product->name}}</div>
@@ -32,13 +31,12 @@
                                 <div class="homeProductPrice col-sm-6">{{$product->price}} €</div>
                             </div>
                             <div class="homeProductButton">
-                                <a class="btn btn-success" href="/product/{{$product->id}}" role="button">+ info</a>
+                                <a href="/product/{{$product->id}}"><button class="btn btn-success">+ info</button></a>
                                 <button class="btn btn-success"><i class="fas fa-shopping-cart"></i></button>
                             </div>
                         </div>
+                    @endforeach
                 </div>
-                @endforeach
-
             </div>
         </div>
     @endforeach
