@@ -13,11 +13,16 @@ class Customer extends Model
      */
     protected $table = 'customer';
 
-    protected $fillable = ['lastname', 'name', 'email', 'telephone', 'delivery_address_id', 'billing_address_id', 'password'];
+    protected $fillable = ['lastname', 'name', 'phone', 'delivery_address_id', 'billing_address_id', 'user_id'];
 
     public function addresses()
     {
         return $this->hasMany('App\Address');
     }
+    public function users(){
+
+        return $this->belongsTo('App\User');
+    }
+
 
 }
