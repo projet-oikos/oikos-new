@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\subscribingnewsletter;
+use App\Subscribingnewsletter;
 
 
 
@@ -15,15 +15,12 @@ class SubscribingNewsletterController extends Controller
     }
 
     public function store(){
-        $contact_msg=new subscribingnewsletter();
-        $contact_msg->email=request('email');
-        $contact_msg->save();
-        return view ('subscribingnewsletter');
+        $mail_address=new Subscribingnewsletter();
+        $mail_address->email=request('email');
+        $mail_address->save();
+        return view ('newsletter.merci');
     }
 
-    public function merci(){
-        return view('merci');
-    }
 
 
 

@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class subscribingnewsletter extends Model
+class Subscribingnewsletter extends Model
 {
     protected $table = 'subnewsletter';
 

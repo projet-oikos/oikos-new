@@ -16,9 +16,11 @@
 
                 <p>Souscrivez à notre newsletter hebdo et restez au courant des nouveautés!</p>
 
-                <form action="" method="post">
+                <form action="/merci" method="post" enctype="multipart/form-data">
+                    {{csrf_field()}}
+
                     <div class="input-prepend"><span class="add-on"><i class="icon-envelope"></i></span>
-                        <input type="text" id="" name="" placeholder="your@email.com">
+                        <input type="text" id="email" name="email" placeholder="your@email.com">
                     </div>
                     <br />
                     <input type="submit" value="Subscribe Now!" class="btn btn-large" />

@@ -96,5 +96,7 @@ Route::post('/contact', 'ContactController@store');
 
 // Newsletter
 Route::get('/newsletter/subscribingnewsletter', 'SubscribingNewsletterController@show');
-Route::get('/merci', 'SubscribingNewsletterController@merci');
+Route::post('/merci', 'SubscribingNewsletterController@store' );
+
+
 
