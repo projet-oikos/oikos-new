@@ -116,3 +116,7 @@ Route::post('/merci', 'SubscribingNewsletterController@store' );
 
 
 
+
+Auth::routes();
+
+Route::get('/account', 'HomeController@index')->name('home');
