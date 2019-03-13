@@ -29,7 +29,7 @@ class CustomerController extends Controller
         $customer->name = request('name');
         $customer->delivery_address_id = request('delivery_address_id');
         $customer->billing_address_id = request('billing_address_id');
-        $customer->password = request('password');
+        $customer->user_id = 1;
         $customer->email = request('email');
         $customer->telephone = request('telephone');
 

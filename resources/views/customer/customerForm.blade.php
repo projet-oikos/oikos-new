@@ -54,18 +54,7 @@
                                     <div class="input-group"><span class="input-group-addon"><i class="fas fa-home fa-2x"></i></span><input id="billing_address_id" name="billing_address_id" placeholder="Address Line 2" class="form-control" required value="{{$bai}}" type="text"></div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="col-md-4 control-label text-lg-center">Mot de passe</label>
-                                <div class="col-md-8 inputGroupContainer">
-                                    <div class="input-group"><span class="input-group-addon"><i class="fas fa-key fa-2x"></i></span><input id="password" name="password" placeholder="City" class="form-control" required value="" type="text"></div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-4 control-label text-lg-center">Email</label>
-                                <div class="col-md-8 inputGroupContainer">
-                                    <div class="input-group"><span class="input-group-addon"><i class="fas fa-envelope fa-2x"></i></span><input id="email" name="email" placeholder="Email" class="form-control" required value="" type="text"></div>
-                                </div>
-                            </div>
+
                             <div class="form-group">
                                 <label class="col-md-4 control-label text-lg-center">Numéro de téléphone</label>
                                 <div class="col-md-8 inputGroupContainer">
