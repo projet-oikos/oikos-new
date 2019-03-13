@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="content col">
-        <h1 class="text-center mt-5 mb-4">Pigeon de notre site</h1>
+        <h1 class="text-center mt-5 mb-4">Pigeons de notre site</h1>
         <a href="{{action('CustomerController@createCustomer')}}" class="btn btn-success">créer un nouveau pigeon<i class="fas fa-plus-circle"></i></a>
         <table id="dtBasicExample" class="table table-striped table-bordered table-sm col-md-8 center-div mb-5" cellspacing="0" width="100%">
             <thead>
@@ -43,7 +43,7 @@
                     <td>{{$test->updated_at}}</td>
                     <td>{{$test->id}}</td>
                     {{--<td class="text-center"> <a href="{{action('CustomerController@modifyCustomer', $id->id)}}" class="btn btn-info"><i class="fas fa-edit"></i></a></td>--}}
-                    {{--<td class="text-center"> <a href="{{action('CustomerController@deleteCustomer', $customer->id)}}" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a></td>--}}
+                    {{--<td class="text-center"> <a href="{{action('CustomerController@deleteCustomer', $customer->id)}}" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a></td>--}}2
                 </tr>
             @endforeach
             </tbody>
