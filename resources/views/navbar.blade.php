@@ -28,7 +28,7 @@
                     <a class="dropdown-item" href="#">Best-seller</a>
                 </div>
             </li>
-            @can('admin')
+            @can('create',\App\Brand::class)
                 <li class="nav-item">
                     <a class="nav-link" href="{{url('/brand/brandlist')}}">Marques</a>
                 </li>

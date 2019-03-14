@@ -34,7 +34,7 @@ class BrandController extends Controller
 
     public function create()
     {
-        $this->authorize();
+        $this->authorize('create',Brand::class);
         return view('home.create');
     }
 
@@ -76,7 +76,7 @@ class BrandController extends Controller
 
     public function brandList()
     {
-        $this->authorize();
+        $this->authorize('view',Brand::class);
         $brands = Brand::all();
         //we return all data to our Home view
         return view('home.brandlist', ['brands' => $brands]);
@@ -84,7 +84,7 @@ class BrandController extends Controller
 
     public function edit($id)
     {
-        $this->authorize('admin');
+        $this->authorize('update',Brand::class);
         $brand = Brand::find($id);
         return view('home.edit', compact('brand'));
     }
@@ -115,7 +115,7 @@ class BrandController extends Controller
 
     public function destroy($id)
     {
-        $this->authorize('admin');
+        $this->authorize('delete',Brand::class);
         $brand = Brand::find($id);
         $brand->delete();
         return redirect('brand/brandlist');

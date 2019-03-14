@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Brand;
+use App\Policies\BrandPolicy;
 use App\User;
 use function foo\func;
 use Illuminate\Support\Facades\Gate;
@@ -16,6 +18,7 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         'App\Model' => 'App\Policies\ModelPolicy',
+        Brand::class => BrandPolicy::class
     ];
 
     /**
@@ -26,11 +29,11 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
 
-
-        Gate::before(function ($user, $ability) {
-            if ($user->isAdmin()) {
-                return true;
-            }
-        });
+        $this->registerPolicies();
+//        Gate::before(function ($user, $ability) {
+//            if ($user->isAdmin()) {
+//                return true;
+//            }
+//        });
     }
 }

@@ -37,13 +37,19 @@ Route::get('/panier/{id}', 'PanierController@viewPanier');
 Route::get('/home', 'BrandController@show');
 Route::get('/', 'BrandController@show');
 
-Route::get('/brand/brandlist', 'BrandController@brandList');
-Route::get('/brand/create', 'BrandController@create');
-Route::post('/home', 'BrandController@store');
+//Brands
 
-Route::get('/brand/edit/{id}', 'BrandController@edit');
-Route::post('/brand/edit/{id}', 'BrandController@update');
-Route::get('/brand/delete/{id}', 'BrandController@destroy');
+    Route::get('/brand/brandlist', 'BrandController@brandList');
+    Route::get('/brand/create', 'BrandController@create');
+    Route::get('/brand/edit/{id}', 'BrandController@edit');
+    Route::post('/brand/edit/{id}', 'BrandController@update');
+    Route::get('/brand/delete/{id}', 'BrandController@destroy');
+    Route::post('/home', 'BrandController@store');
+
+
+
+
+
 
 
 
