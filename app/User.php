@@ -37,11 +37,19 @@ class User extends Authenticatable
         return $this->hasOne('App\Customer');
     }
 
-    public function isAdmin()
-    {
-       return $this->is_admin;
+    protected $attributes = [
+        'role' => 'user'
+    ];
 
+
+    public function isAdmin(){
+        return $this->role === 'admin';
     }
 
+//    public function isAdmin()
+//    {
+//        return $this->is_admin;
+//
+//    }
 
 }
