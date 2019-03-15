@@ -48,13 +48,20 @@ Route::get('/', 'BrandController@show');
     Route::post('/home', 'BrandController@store');
 
 
+
+
+
+
+
+
 //Customer
 
 Route::get('/customer', 'CustomerController@index');
 
 //form
 
-
+Route::get('/formReview', 'FormsController@create');
+Route::post('/formReview', 'FormsController@store');
 Route::get('/productList', 'ProductController@productList');
 //Creer product
 Route::get('/createProduct', 'ProductController@createProduct');
@@ -68,26 +75,22 @@ Route::post('/product/{id}/edit', 'ProductController@storeProduct');
 Route::post('/product/{id}/edit', 'ProductController@updateProduct');
 Route::get('/product/{id}/delete', 'ProductController@destroyProduct');
 
-Route::get('/customerForm', 'CustomerController@createCustomer');
 
-Route::get('/customerForm/{id}', 'CustomerController@modifyCustomer');
 
-Route::post('/accountCreated', 'CustomerController@storeCustomer');
+//Customer
 
-//Route::get('/customer/{id}', 'CustomerController@view');
+Route::get('/customer', 'CustomerController@index');
 
-Route::get('/customer/deleteCustomerForm', 'CustomerController@show');
-Route::get('/customer/deleteCustomerForm/{id}', 'CustomerController@modifyCustomer');
-Route::post('/customerForm', 'CustomerController@createCustomer');
 
-Route::get('/customer/{id}/deleteCustomerForm', 'CustomerController@deleteCustomer');
-Route::post('/customer/{id}/deleteCustomerForm', 'CustomerController@deleteCustomer');
+Route::get('/customer/{id}/edit', 'CustomerController@edit');
+Route::post('/customer/{id}/edit', 'CustomerController@update');
 
-Route::get('/customer/{id}/accountCreated', 'CustomerController@edit');
+Route::get('/customer/{id}/delete', 'CustomerController@delete');
 
-Route::post('/customer/{id}/accountCreated', 'CustomerController@update');
+Route::get('/customer/create', 'CustomerController@create');
+Route::post('/customer/create', 'CustomerController@insert');
 
-//Route::get('/customer/{id}/deleteCustomerForm', 'CustomerController@destroy');
+Route::get('/customer/{id}', 'CustomerController@show');
 
 
 //Function

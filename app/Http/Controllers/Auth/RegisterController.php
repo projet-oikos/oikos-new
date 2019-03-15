@@ -70,4 +70,15 @@ class RegisterController extends Controller
             'admin' => '0',
         ]);
     }
+
+    public function delete(){
+
+        $id = \request("id");
+        $user = User::findOrFail($id);
+
+//        $user = \request("user_id");
+        $user->delete();
+
+        return redirect('/customer');
+    }
 }

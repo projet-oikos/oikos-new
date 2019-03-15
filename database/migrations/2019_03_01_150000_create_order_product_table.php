@@ -32,11 +32,7 @@ class CreateOrderProductTable extends Migration
         });
 
 
-        DB::table('order_product')->insert([
-            'quantity' => 2,
-            'product_id' => '1',
-            'order_id' => '1',
-        ]);
+
     }
 
     /**
