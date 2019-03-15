@@ -36,14 +36,12 @@
                     <td>{{$test->name}}</td>
                     <td>{{$test->delivery_address_id}}</td>
                     <td>{{$test->billing_address_id}}</td>
-                    <td>{{$test->email}}</td>
                     <td>{{$test->telephone}}</td>
-                    <td>{{$test->password}}</td>
                     <td>{{$test->created_at}}</td>
                     <td>{{$test->updated_at}}</td>
                     <td>{{$test->id}}</td>
-                    {{--<td class="text-center"> <a href="{{action('CustomerController@modifyCustomer', $id->id)}}" class="btn btn-info"><i class="fas fa-edit"></i></a></td>--}}
-                    {{--<td class="text-center"> <a href="{{action('CustomerController@deleteCustomer', $customer->id)}}" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a></td>--}}2
+                    <td class="text-center"> <a href="{{action('CustomerController@modifyCustomer', $test->id)}}" class="btn btn-info"><i class="fas fa-edit"></i></a></td>
+                    <td class="text-center"> <a href="{{action('CustomerController@deleteCustomer', $test->id)}}" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a></td>2
                 </tr>
             @endforeach
             </tbody>

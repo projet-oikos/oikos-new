@@ -15,8 +15,15 @@ class Address extends Model
 
     protected $fillable = ['number', 'address', 'complement', 'nap', 'city', 'country', 'customer_id'];
 
+    protected $attributes = ['complement' => ' '];
+
     public function users()
     {
         return $this->belongsTo('App\User');
+    }
+
+    public function customers()
+    {
+        return $this->belongsTo('App\Customer');
     }
 }

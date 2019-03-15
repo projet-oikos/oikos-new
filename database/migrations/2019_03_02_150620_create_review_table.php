@@ -85,7 +85,7 @@ class CreateReviewTable extends Migration
             'date' => Carbon::today(),
             'note' => '4',
             'product_id' =>'6',
-            'customer_id' =>'6',
+            'customer_id' =>'2',
             'created_at'  => Carbon::today(),
             'updated_at'  => Carbon::today()
         ]);
@@ -95,7 +95,7 @@ class CreateReviewTable extends Migration
             'date' => Carbon::today(),
             'note' => '3',
             'product_id' =>'7',
-            'customer_id' =>'7',
+            'customer_id' =>'4',
             'created_at'  => Carbon::today(),
             'updated_at'  => Carbon::today()
         ]);
@@ -105,7 +105,7 @@ class CreateReviewTable extends Migration
             'date' => Carbon::today(),
             'note' => '4',
             'product_id' =>'8',
-            'customer_id' =>'8',
+            'customer_id' =>'3',
             'created_at'  => Carbon::today(),
             'updated_at'  => Carbon::today()
         ]);
@@ -115,7 +115,7 @@ class CreateReviewTable extends Migration
             'date' => Carbon::today(),
             'note' => '5',
             'product_id' =>'9',
-            'customer_id' =>'9',
+            'customer_id' =>'5',
             'created_at'  => Carbon::today(),
             'updated_at'  => Carbon::today()
         ]);

@@ -2,64 +2,112 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Customer;
+use Illuminate\Support\Facades\Gate;
 
 class CustomerController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-        $customers = DB::select('SELECT * FROM customer');
+        $customers = Customer::all();
 
         return view('customer.index', ['customers' => $customers]);
     }
 
-    public function createCustomer()
+    public function edit()
     {
+        $id = \request("id");
+        $customer = Customer::findOrFail($id);
 
-        return view('customer.customerForm');
+        return view('customer.edit', ['customer' => $customer]);
     }
 
-
-    public function storeCustomer()
+    public function update()
     {
-        $customer = new Customer();
-        $customer->lastname = request('lastname');
-        $customer->name = request('name');
-        $customer->delivery_address_id = request('delivery_address_id');
-        $customer->billing_address_id = request('billing_address_id');
-        $customer->user_id = 1;
-        $customer->email = request('email');
-        $customer->telephone = request('telephone');
+        $id = \request("id");
+        $customer = Customer::findOrFail($id);
+
+        $customer->lastname = \request("lastname");
+        $customer->name = \request("name");
+        $customer->phone = \request("phone");
+        foreach ($customer->addresses()->get() as $address)
+        {
+
+            $address->number = \request('number'.$address->id);
+            $address->address = \request('address'.$address->id);
+            $address->complement = \request('complement'.$address->id);
+            $address->nap = \request('nap'.$address->id);
+            $address->city = \request('city'.$address->id);
+            $address->country = \request('country'.$address->id);
+            $address->save();
+        }
 
         $customer->save();
 
+        return redirect()->action("CustomerController@index");
+    }
 
-        return view('customer.accountCreated');
+    public function delete()
+    {
+        $id = \request("id");
+
+        $customer = Customer::findOrFail($id);
+
+        foreach($customer->addresses as $address){
+            $address->delete();
+        }
+
+        $user = $customer->users;
+
+        if($user){
+            $user->delete();
+        }
+        foreach($customer->reviews as $review){
+            $review->delete();
+        }
+
+
+        $customer->delete();
+
+        return redirect()->action("CustomerController@index");
 
     }
+
+    public function create()
+    {
+        return view('customer.customerForm');
+    }
+
+    /**
+    public function insert(){
+        $customer = new customer();
+        $customer->lastname =
+        $customer->name =
+        $customer->phone =
+        $customer->phone =
+        $customer->phone =
+
+    }
+**/
 
     public function show()
     {
-        $customer = Customer::all();
 
-        return view('customer.deleteCustomerForm', ['customer' => $customer]);
+        $id = \request("id");
+        $customer = Customer::findOrFail($id);
+        return view('customer.show', ['customer' => $customer]);
     }
 
-    public function modifyCustomer()
-    {
-        $id = request('id');
-        $customer = customer::where('id', $id)->get();
-        return view('customer.customerForm', ['customer' => $customer]);
 
-    }
-
-    public function deleteCustomer($id) {
-        $customer = Customer::where($id);
-        $customer->delete();
-        return redirect('customer/customerForm');
-    }
 
 }
 
