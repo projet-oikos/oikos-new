@@ -14,8 +14,7 @@
                 <a class="nav-link" href="{{url('/about_us')}}">Qui sommes-nous?</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Produits
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -37,6 +36,11 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{url('/contact')}}">Contact</a>
             </li>
+            @can('create', \App\Product::class)
+            <li class="nav-item">
+                <a class="nav-link" href="{{url('/productList')}}">Gestion des produits</a>
+            </li>
+            @endcan
         </ul>
 
         <ul class="navbar-nav ml-auto">

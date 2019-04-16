@@ -8,9 +8,11 @@
 <br>
 
 <div class="container">
-<div class="d-flex justify-content-start "><img src="{{$cardProduct->image1}}" alt="photo" class="img-thumbnail imgperso">      {{--/////////////////       Image produit      ///////////////////////////////////////////////////////--}}
+<div class="d-flex">
 
-    <div class="card">
+    <img src="{{$cardProduct->image1}}" alt="photo" class="img-thumbnail imgperso">      {{--/////////////////       Image produit      ///////////////////////////////////////////////////////--}}
+
+    <div class="card car-perso">
         <div class="card-body">
             <h2 class="card-title"> {{--{{$cardProduct->brand->name}} --}} {{$cardProduct->name}}</h2><br>            {{-- /////////////////       Nom produit      ///////////////////////////////////////////////////////--}}
 
@@ -25,7 +27,7 @@
            </div>
 
             <div>
-            <button  type="button" class="btn btnColor ">{{$cardProduct->price}} €</button>   {{--/////////////////       Prix produit      ///////////////////////////////////////////////////////--}}
+            <button  type="button" class="btn btnColor " id="test">{{$cardProduct->price}} €</button>   {{--/////////////////       Prix produit      ///////////////////////////////////////////////////////--}}
             </div>
         </div>
         </div>
@@ -34,5 +36,6 @@
 </div>
 
 @endforeach
+    {{--<img src="{{asset('img/aerogarden/test_03.jpg')}}" id="imgtest">--}}
 
 @endsection
