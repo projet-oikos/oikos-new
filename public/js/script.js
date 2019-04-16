@@ -18,6 +18,10 @@ $(document).ready(function () {
         $('.imgperso').viewer();
 
     });
+    $('#customer').DataTable();
+  });
+
+
 
 /////////// script etoile de notation produit//////////////
     var $value = 0;

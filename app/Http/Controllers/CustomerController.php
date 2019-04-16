@@ -6,6 +6,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Customer;
+use App\Address;
 use Illuminate\Support\Facades\Gate;
 
 class CustomerController extends Controller
@@ -87,17 +88,26 @@ class CustomerController extends Controller
         return view('customer.customerForm');
     }
 
-    /**
-    public function insert(){
-        $customer = new customer();
-        $customer->lastname =
-        $customer->name =
-        $customer->phone =
-        $customer->phone =
-        $customer->phone =
 
+    public function insert(Request $request){
+
+        $customer = new customer();
+        $customer->lastname = \request('lastname');
+        $customer->name = \request('name');
+        $customer->phone = \request('telephone');
+        $customer->save();
+
+        $address = new Address();
+        $address->number = \request('number');
+        $address->address = \request('address');
+        $address->complement = \request('complement');
+        $address->nap = \request('nap');
+        $address->city = \request('city');
+        $address->country = \request('country');
+        $address->save();
+        return redirect()->action("CustomerController@index");
     }
-**/
+
 
     public function show()
     {
