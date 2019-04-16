@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Routing\Controller as Controller;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Support\Facades\Gate;
 
 class ProductController extends Controller
 
@@ -34,9 +35,12 @@ class ProductController extends Controller
     }
 
     public function createProduct()
-    {                                                                                                                   //Fonction pour le formulaire de cration de nouveau produit
+    {
+        $this->authorize('create', Product::class);
+
+        //Fonction pour le formulaire de cration de nouveau produit
         $anybrand = Brand::all();
-        return view('product.create', ['anybrand' => $anybrand]);                                                  //Affiche le formulaire a l'admin
+        return view('product.create', ['anybrand' => $anybrand]);                                          //Affiche le formulaire a l'admin
     }
 
     public function storeProduct(Request $request )
@@ -87,6 +91,8 @@ class ProductController extends Controller
 
     public function productList()
     {
+
+        $this->authorize('create', Product::class);
         $anyProduct = Product::all();
 
         return view('product.productList', ['anyProduct' => $anyProduct]);
@@ -94,10 +100,16 @@ class ProductController extends Controller
 
 
     public function editProduct($id)
-    {                                                                                                                   //Fonction pour le formulaire qui vas prérmplir le formulaire du produit a modifier
+    {
+
+        $this->authorize('update', Product::class);
+
+        //Fonction pour le formulaire qui vas prérmplir le formulaire du produit a modifier
         $brand = Brand::find(request('brand'));
 
         $product = Product::find($id);
+
+
 
         return view('product.edit', compact('product'), ['brand' => $brand]);
     }
@@ -152,6 +164,7 @@ class ProductController extends Controller
      */
     public function destroyProduct($id)
     {
+        $this->authorize('delete', Product::class);
 
         $product = Product::find($id);
         $product->delete();
