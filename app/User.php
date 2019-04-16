@@ -35,6 +35,16 @@ class User extends Authenticatable
     }
 
 
+    protected $attributes = [
+        'role' => 'user'
+    ];
+
+
+    public function isAdmin(){
+        return $this->role === 'admin';
+    }
+
+
     public function customers(){
 
         return $this->hasOne('App\Customer');

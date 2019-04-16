@@ -36,7 +36,7 @@ class ProductPolicy
      */
     public function create(User $user)
     {
-        return false;
+       return false;
     }
 
     /**
@@ -63,12 +63,5 @@ class ProductPolicy
         return false;
     }
 
-    /**
-     * Determine whether the user can restore the post.
-     *
-     * @param  \App\User  $user
-     * @param  \App\Post  $post
-     * @return mixed
-     */
 
 }
