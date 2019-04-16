@@ -28,6 +28,11 @@ class Product extends Model
         'updated_at'
     ];
 
+    protected $attributes = [
+        'tva' => '1.2',
+        'delivery' => '6.9'
+    ];
+
 
     /////////////////////////////////////////     Un produit ne peut avoir qu'une marque     /////////////////////////////////////////////////////////////////////////////////////////////////////////
 

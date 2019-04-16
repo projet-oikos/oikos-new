@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Product;
 use App\Brand;
 use App\Review;
+use Illuminate\Auth\Access\Gate;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Support\Facades\DB;
@@ -16,6 +17,11 @@ class ProductController extends Controller
 
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+        public function  __construct()
+        {
+            $this->middleware('auth', ['except' => ['viewProduct']]);
+        }
 
     public function viewProduct()
     {
@@ -34,14 +40,14 @@ class ProductController extends Controller
     }
 
     public function createProduct()
-    {                                                                                                                   //Fonction pour le formulaire de cration de nouveau produit
+    {    $this->authorize('create', Product::class);                                                                                                            //Fonction pour le formulaire de cration de nouveau produit
         $anybrand = Brand::all();
         return view('product.create', ['anybrand' => $anybrand]);                                                  //Affiche le formulaire a l'admin
     }
 
-    public function storeProduct(Request $request )
+    public function storeProduct(Request $request)
     {
-                                                                                                                        //Fonction pour le formulaire qui vas stocker les donnees
+        $this->authorize('create', Product::class);                                                                                                                //Fonction pour le formulaire qui vas stocker les donnees
         $brand = Brand::find(request('brand'));
         $brandName = strtolower(str_replace(" ", "_", $brand->name));
         $product = new Product();
@@ -87,6 +93,7 @@ class ProductController extends Controller
 
     public function productList()
     {
+        $this->authorize('create', Product::class);
         $anyProduct = Product::all();
 
         return view('product.productList', ['anyProduct' => $anyProduct]);
@@ -94,7 +101,8 @@ class ProductController extends Controller
 
 
     public function editProduct($id)
-    {                                                                                                                   //Fonction pour le formulaire qui vas prérmplir le formulaire du produit a modifier
+    {
+        $this->authorize('update', Product::class);                                                                                    //Fonction pour le formulaire qui vas prérmplir le formulaire du produit a modifier
         $brand = Brand::find(request('brand'));
 
         $product = Product::find($id);
@@ -104,46 +112,49 @@ class ProductController extends Controller
 
     public function updateProduct(Request $request, $id)
     {
+        $this->authorize('update', Product::class);
         $brand = Brand::find(request('brand'));
         $brandName = strtolower(str_replace(" ", "_", $brand->name));
         $product = Product::find($id);
-        $productName = $request->input('name');
-        $productPrice = $request->input('price');
+        $product->name = $request->input('name');
+        $product->price = $request->input('price');
 //        $file = $request->file('image');
 
         for ($i = 1; $i < 5; $i++) {                                                                                    //Boucle for qui vas parcourir les photos de mon formulaire
             $file = $request->file('image' . $i);
+
             if ($file) {
                 if ($i != null) {
-//                    $ext = $file->getClientOriginalExtension();
-//                    $productName = strtolower(str_replace(" ", "_", $product->name) . "_0" . $i . "." . $ext);
-//                    $file->move('img\\' . $brandName, $productName);
-                    $file->move('img\\' . $brandName, $file->getClientOriginalName());
-                    $productImage = 'img/' . $brandName . '/' . $file->getClientOriginalName();
-                    $product->image = $productImage;
+                    $ext = $file->getClientOriginalExtension();
+                    $newName = strtolower(str_replace(" ", "_", $product->name) . "_0" . $i . "." . $ext);
+                    $file->move('img\\' . $brandName, $newName);
 
                     switch ($i) {
                         case 1:
-                            $product->image1 = 'img/' . $brandName . '/' . $productName;
+                            $product->image1 = 'img/' . $brandName . '/' . $newName;
                             break;
                         case 2:
-                            $product->image2 = 'img/' . $brandName . '/' . $productName;
+                            $product->image2 = 'img/' . $brandName . '/' . $newName;
                             break;
                         case 3:
-                            $product->image3 = 'img/' . $brandName . '/' . $productName;
+                            $product->image3 = 'img/' . $brandName . '/' . $newName;
                             break;
                         case 4:
-                            $product->image4 = 'img/' . $brandName . '/' . $productName;
+                            $product->image4 = 'img/' . $brandName . '/' . $newName;
                             break;
                     }
-                    $product->name = $productName;
-                    $product->price = $productPrice;
-                    $product->save();
-                    return redirect('product/' . $id . '/edit');
-
                 }
             }
         }
+        $product->video =  $request->input('video');
+        $product->description =  $request->input('description');
+        $product->pdf =  $request->input('pdf');
+        $product->stock =  $request->input('stock');
+        $product->category =  $request->input('category');
+        $product->save();
+
+return redirect('productList');
+
     }
 
     /**
@@ -152,7 +163,7 @@ class ProductController extends Controller
      */
     public function destroyProduct($id)
     {
-
+        $this->authorize('delete', Product::class);
         $product = Product::find($id);
         $product->delete();
 
