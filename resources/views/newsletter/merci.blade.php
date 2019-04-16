@@ -10,7 +10,7 @@
             Un souci? <a href="">Contactez-nous</a>
         </p>
         <p class="lead">
-            <a class="btn btn-primary btn-sm" href="https://bootstrapcreative.com/" role="button">Retourner à l'accueil</a>
+            <a class="btn btn-primary btn-sm" href="{{url('/')}}" role="button">Retourner à l'accueil</a>
         </p>
     </div>
 

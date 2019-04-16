@@ -5,9 +5,9 @@ body{
 }
 
 .productSlide{
-
+    position: absolute;
+    z-index:1;
     height: 29rem;
-    background-position: inherit;
     background-size: cover;
     display: flex;
     padding-left: 3rem;
@@ -16,6 +16,8 @@ body{
 }
 
 .productName{
+    position: absolute;
+    z-index:2;
     background-color: rgba(255,255,255,0.8);
     margin-left: -3rem;
     padding-left: 4rem;

@@ -5,8 +5,8 @@
     <!-- We will create one brand banner with each brand for our home page -->
     @foreach($brands as $brand)
 
-        <div class="content">
-            <div class="col-md-12 productSlide" style="background-image: url({{ $brand->image }})">
+        <div class="parallax-background">
+            <div class="col-md-12 productSlide"  style="background-image: url({{ $brand->image }})">
                 <div class="productName"><h2>{{ $brand->title }}</h2>
                     <h3>{{ $brand->subtitle }}</h3>
                 </div>

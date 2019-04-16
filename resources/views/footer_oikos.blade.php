@@ -3,6 +3,7 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 <!------ Include the above in your HEAD tag ---------->
 
 <!-- Footer -->
@@ -15,7 +16,7 @@
 
             </div>
             <div class="col-xs-12 col-sm-4 col-md-4">
-                <a href="{{url('/cgdv')}}"><h5>CGDV</h5></a>
+                <a href="{{url('conditionVente/cdgv')}}"><h5>CGDV</h5></a>
 
             </div>
             <div class="col-xs-12 col-sm-4 col-md-4">
