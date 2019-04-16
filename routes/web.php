@@ -84,7 +84,7 @@ Route::post('/customer/{id}/edit', 'CustomerController@update');
 Route::get('/customer/{id}/delete', 'CustomerController@delete');
 
 Route::get('/customer/create', 'CustomerController@create');
-Route::post('/customer/create', 'CustomerController@insert');
+Route::post('/create', 'CustomerController@insert');
 
 Route::get('/customer/{id}', 'CustomerController@show');
 

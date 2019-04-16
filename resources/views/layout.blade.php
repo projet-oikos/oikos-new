@@ -24,6 +24,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/product.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/catalog.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css\customerForm.css')}}"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
 
     @stack('style')
 
@@ -49,6 +50,10 @@ crossorigin="anonymous"></script>
 integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 crossorigin="anonymous"></script>
 <script src="{{asset('js/imageviewer/dist/viewer.js')}}"></script>
+<script type="text/javascript" charset="utf8"
+        src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+<script type="text/javascript" src="{{asset('js/script.js')}}"></script>
+
 <script type="text/javascript" src="{{asset('js/script.js')}}"></script>
 </body>
 </html>

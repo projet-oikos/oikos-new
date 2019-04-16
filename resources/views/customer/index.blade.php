@@ -2,18 +2,19 @@
 
 @section('content')
 
-    <div class="content col">
-        <h1 class="text-center mt-5 mb-4">Pigeons de notre site</h1>
-        <a href="{{action('CustomerController@create')}}" class="btn btn-success">créer un nouveau pigeon<i class="fas fa-plus-circle"></i></a>
+    <div class="content col my-2">
 
-        <table id="dtBasicExample" class="table table-striped table-bordered table-sm col-md-8 center-div mb-5" cellspacing="0" width="100%">
+        <h1 class="text-center mt-5 mb-4">Pigeons de notre site</h1>
+        <a href="{{action('CustomerController@create')}}" class="btn btn-success mb-5">créer un nouveau pigeon<i class="fas fa-plus-circle"></i></a>
+
+        <table id="customer"  >
             <thead>
             <tr>
-                <th class="th-sm">Nom
+                <th>Nom
                 </th>
-                <th class="th-sm">Prénom
+                <th>Prénom
                 </th>
-                <th class="th-sm">téléphone
+                <th>téléphone
                 </th>
             </tr>
             </thead>
@@ -25,14 +26,14 @@
                     <td>{{$test->name}}</td>
                     <td>{{$test->phone}}</td>
 
-                    <td class="text-center"> <a href="{{action('CustomerController@edit', $test->id)}}" class="btn btn-info"><i class="fas fa-edit"></i></a></td>
 
-                    <td class="text-center"> <a href="{{action('CustomerController@delete', $test->id)}}" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a></td>
                 </tr>
             @endforeach
             </tbody>
 
         </table>
+
+
     </div>
 
 @endsection
