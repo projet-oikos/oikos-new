@@ -10,10 +10,11 @@
                 <div class="productName"><h2>{{ $brand->title }}</h2>
                     <h3>{{ $brand->subtitle }}</h3>
                 </div>
+
             </div>
             <div class="productCollapse">
-                <a class="btn boton" data-toggle="collapse" href="#collapseExample{{$brand->id}}" role="button"
-                   aria-expanded="false" aria-controls="collapseExample">
+                <a class="btn boton" for="collapseExample{{$brand->id}}" data-toggle="collapse" href="#collapseExample{{$brand->id}}" role="button"
+                   aria-expanded="false" aria-controls="collapseExample{{$brand->id}}">
                     +
                 </a>
                 <div class="collapse homeProductCollapse" id="collapseExample{{$brand->id}}">
@@ -31,7 +32,7 @@
                                 <div class="homeProductPrice col-sm-6">{{$product->price}} €</div>
                             </div>
                             <div class="homeProductButton">
-                                <a href="/product/{{$product->id}}"><button class="btn btn-success">+ info</button></a>
+                                <a href="/product/{{$product->id}}"><button class="btn btn-info" style="color: white"><strong>+ info</strong></button></a>
                                 <button class="btn btn-success"><i class="fas fa-shopping-cart"></i></button>
                             </div>
                         </div>
@@ -40,5 +41,6 @@
             </div>
         </div>
     @endforeach
+
 
 @endsection

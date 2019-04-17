@@ -17,7 +17,7 @@ Route::get('/product', 'ProductController@viewProduct');
 
 Route::post('/product', 'ProductController@store');
 
-Route::get('/product/create', 'ProductController@createReview');
+Route::get('/product/create', 'ProductController@createProduct');
 
 Route::get('/product/{id}', 'ProductController@viewProduct, {id}');
 
@@ -48,20 +48,13 @@ Route::get('/', 'BrandController@show');
     Route::post('/home', 'BrandController@store');
 
 
-
-
-
-
-
-
 //Customer
 
 Route::get('/customer', 'CustomerController@index');
 
 //form
 
-Route::get('/formReview', 'FormsController@create');
-Route::post('/formReview', 'FormsController@store');
+
 Route::get('/productList', 'ProductController@productList');
 //Creer product
 Route::get('/createProduct', 'ProductController@createProduct');
@@ -121,9 +114,15 @@ Route::post('/contact', 'ContactController@store');
 Route::get('/newsletter/subscribingnewsletter', 'SubscribingNewsletterController@show');
 Route::post('/merci', 'SubscribingNewsletterController@store' );
 
+//Reviews
+
+Route::post('/review', 'ReviewController@createReview' );
+Route::post('/userReview', 'ReviewController@storeReview' );
 
 
 
 Auth::routes();
 
 Route::get('/account', 'HomeController@index')->name('home');
+
+Route::get('cgdv', function(){return View::make('cgdv');});

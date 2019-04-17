@@ -7,6 +7,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Carbon\Carbon;
 use App\Review;
+use Illuminate\Support\Facades\DB;
 
 class ReviewController extends BaseController
 {
@@ -14,26 +15,34 @@ class ReviewController extends BaseController
 
 
 
-    public function store(Request $request) {
-        $this->validate($request, [
-            'review' => 'required',
-            'note' => 'required',
+    public function storeReview(Request $request) {
 
-        ]);
+//        $this->validate($request, [
+//            'review' => 'required',
+////            'note' => 'required',
+//
+//        ]);
         $review = new Review();
-        $review->review = $request->input('review');
+        $review->review = $request->input('guestReview');
         $review->note = $request->input('note');
-        $review->product_id = $request->input('id');
-        $review->customer_id = 1;
+        $review->product_id = $request->input('product_id');
+        $review->customer_id =2; //$request->input('customer_id');
         $review->date = Carbon::today();
         $review->save();
 
 
 
-        return redirect()->action('ProductController@viewProduct', ['id' => $request->input('id')]);
+        return redirect()->action('ProductController@viewProduct', ['id' => $request->input('product_id')]);
     }
 
+    public function createReview(Request $request)
+    {
+        $currentProduct = DB::table('product')->where('id', $request->product)->get();
 
+
+
+        return view('product.formReviewProduct', ['product' => $currentProduct]);
+    }
 
 
 }

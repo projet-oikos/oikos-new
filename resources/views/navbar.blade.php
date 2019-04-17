@@ -53,7 +53,7 @@
                 </li>
                 @if (Route::has('register'))
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('register') }}"><i class="fas fa-user-plus"
+                        <a class="nav-link" href="{{ route('register') }}">|  <i class="fas fa-user-plus"
                                                                               style="width: 17px; height: 0px"></i> {{ __('Register') }}
                         </a>
                     </li>
@@ -73,6 +73,8 @@
     </div>
     </li>
     @endguest
+    <li class="nav-item"><a href="panier" class="nav-link">|  <i class="fas fa-shopping-cart"></i>   Panier</a></li>
+
     </ul>
     <!-- <form class="form-inline my-2 my-lg-0">
          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">

@@ -64,27 +64,37 @@
                 </div>
             </div>
         </div>
+        <div class="card-header">
+            Avis Client
+        </div>
+        @foreach($product -> reviews() -> get() as $review)
 
-        @foreach($product->reviews()->get() as $review)
-            <div class="card-header">
-                Avis Client
-            </div>
             <div class="card-body">                                                                         <!-- encart avis client / etoile / note -->
+                <input type="hidden" class="star{{$review->id}}" value="{{$review->note}}">
                 <p>{{$review -> review}}</p>                                                                <!-- Affiche l'avis client -->
                 <span class="heading">Note Client</span>
-                <span class="fa fa-star checked"></span>                                                    <!-- etoile cheked -->
-                <span class="fa fa-star checked"></span>                                                    <!-- etoile cheked -->
-                <span class="fa fa-star checked"></span>                                                    <!-- etoile cheked -->
-                <span class="fa fa-star"></span>                                                            <!-- etoile -->
-                <span class="fa fa-star"></span>                                                            <!-- etoile -->
+
+               <div class="d-flex justify-content-center selectNote{{$review->id}}" >
+                   <span class="fa fa-star"></span>                                                    <!-- etoile cheked -->
+                   <span class="fa fa-star"></span>                                                    <!-- etoile cheked -->
+                   <span class="fa fa-star"></span>                                                    <!-- etoile cheked -->
+                   <span class="fa fa-star"></span>                                                            <!-- etoile -->
+                   <span class="fa fa-star"></span>
+               </div>
+                <script type="text/javascript">
+                    showStar({{$review->id}});
+                </script>                                             <!-- etoile -->
                 <p>Note de {{$review -> note}}  basée sur  {{$review -> id}}  avis.</p>                     <!-- Affiche la note de l'avis client -->
-                <small class="text-muted">Posté par Marcel le . {{$review -> date}}</small>                 <!-- Affiche la date de l'avis client -->
+                <small class="text-muted">Posté . {{$review -> date}}</small>                 <!-- Affiche la date de l'avis client -->
                 <hr>
             </div>
-        @endforeach                                                                                                         <!-- Fin de boucle froeach -->
-
-        <a target = "_blank" href="{{$product ->pdf}}" class="btn colorBtn btn-lg end">Fiche Technique (PDF)</a><br>                  <!-- LIEN PDF vers fiche technique du produit -->
+        @endforeach
+    <form method="post" action="/review">
+        {{csrf_field()}}
+        <input type="hidden" name="product" value="{{$product -> id}}">
+        <button type="submit" class="btn colorBtn btn-lg end">Laisser un avis</button><br>
+    </form>
+        <a target = "_blank" href="{{$product -> pdf}}" class="btn colorBtn btn-lg end">Fiche Technique (PDF)</a><br>                  <!-- LIEN PDF vers fiche technique du produit -->
     </div>
-    <script src="{{asset('js/app.js')}}" crossorigin="anonymous"></script>                                              <!-- SRIPT ??? -->
-    <script src="{{asset('js/bootstrap.js')}}" crossorigin="anonymous"></script>                                        <!-- SCRIPT JAVA BOOTSTRAP -->
+
 @endsection

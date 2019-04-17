@@ -40,14 +40,14 @@ class ProductController extends Controller
     }
 
     public function createProduct()
-    {    $this->authorize('create', Product::class);                                                                                                            //Fonction pour le formulaire de cration de nouveau produit
+    {    $this->authorize('create', Product::class);                                                   //Fonction pour le formulaire de cration de nouveau produit
         $anybrand = Brand::all();
         return view('product.create', ['anybrand' => $anybrand]);                                                  //Affiche le formulaire a l'admin
     }
 
     public function storeProduct(Request $request)
     {
-        $this->authorize('create', Product::class);                                                                                                                //Fonction pour le formulaire qui vas stocker les donnees
+        $this->authorize('create', Product::class);                                                    //Fonction pour le formulaire qui vas stocker les donnees
         $brand = Brand::find(request('brand'));
         $brandName = strtolower(str_replace(" ", "_", $brand->name));
         $product = new Product();
@@ -57,7 +57,6 @@ class ProductController extends Controller
         $product->weight = request('weight');
         for ($i = 1; $i < 5; $i++) {                                                                                    //Boucle for qui vas parcourir les photos de mon formulaire
             $file = $request->file('image' . $i);
-
             if ($file) {
                 if ($i != null) {
                     $ext = $file->getClientOriginalExtension();
