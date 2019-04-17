@@ -47,12 +47,6 @@ Route::get('/', 'BrandController@show');
     Route::post('/home', 'BrandController@store');
 
 
-
-
-
-
-
-
 //Customer
 
 Route::get('/customer', 'CustomerController@index');
@@ -126,3 +120,5 @@ Route::post('/merci', 'SubscribingNewsletterController@store' );
 Auth::routes();
 
 Route::get('/account', 'HomeController@index')->name('home');
+
+Route::get('cgdv', function(){return View::make('cgdv');});

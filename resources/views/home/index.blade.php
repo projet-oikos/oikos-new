@@ -5,22 +5,16 @@
     <!-- We will create one brand banner with each brand for our home page -->
     @foreach($brands as $brand)
 
-        <div class="parallax-background">
-            <div data-depth="0.2" class="col-md-12 productSlide parallax-inner" style="background-image: url({{ $brand->image }})">
-                <div data-depth="0.4" class="productName"><h2>{{ $brand->title }}</h2>
+        <div class="content">
+            <div class="col-md-12 productSlide" style="background-image: url({{ $brand->image }})">
+                <div class="productName"><h2>{{ $brand->title }}</h2>
                     <h3>{{ $brand->subtitle }}</h3>
                 </div>
-                <script>
-                    $('.parallax-demo-3').parallaxBackground({
-                        event: 'mouse_move',
-                        animation_type: 'shift',
-                        animate_duration: 2
-                    });
-                </script>
+
             </div>
             <div class="productCollapse">
-                <a class="btn boton" data-toggle="collapse" href="#collapseExample{{$brand->id}}" role="button"
-                   aria-expanded="false" aria-controls="collapseExample">
+                <a class="btn boton" for="collapseExample{{$brand->id}}" data-toggle="collapse" href="#collapseExample{{$brand->id}}" role="button"
+                   aria-expanded="false" aria-controls="collapseExample{{$brand->id}}">
                     +
                 </a>
                 <div class="collapse homeProductCollapse" id="collapseExample{{$brand->id}}">
@@ -38,7 +32,7 @@
                                 <div class="homeProductPrice col-sm-6">{{$product->price}} €</div>
                             </div>
                             <div class="homeProductButton">
-                                <a href="/product/{{$product->id}}"><button class="btn btn-success">+ info</button></a>
+                                <a href="/product/{{$product->id}}"><button class="btn btn-info" style="color: white"><strong>+ info</strong></button></a>
                                 <button class="btn btn-success"><i class="fas fa-shopping-cart"></i></button>
                             </div>
                         </div>
@@ -47,5 +41,6 @@
             </div>
         </div>
     @endforeach
+
 
 @endsection
