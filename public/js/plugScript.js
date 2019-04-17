@@ -3,8 +3,8 @@ $(document).ready( function () {
 
 } );
 
-$('.parallax-background').parallaxBackground({
-    event: 'mouse_move',
-    animation_type: 'shift',
-    animate_duration: 2
-});
+// $('.parallax-background').parallaxBackground({
+//     event: 'mouse_move',
+//     animation_type: 'shift',
+//     animate_duration: 2
+// });

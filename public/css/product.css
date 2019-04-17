@@ -32,7 +32,18 @@
     margin-right: 25px;
 }
 
-.fa {
+.con{
+   height:60px;
+    width:330px;
+    position: relative;
+    margin: auto;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+}
+
+.fa-star{
     font-size: 25px;
 }
 
