@@ -17,7 +17,7 @@ Route::get('/product', 'ProductController@viewProduct');
 
 Route::post('/product', 'ProductController@store');
 
-Route::get('/product/create', 'ProductController@createReview');
+Route::get('/product/create', 'ProductController@createProduct');
 
 Route::get('/product/{id}', 'ProductController@viewProduct');
 
@@ -45,12 +45,6 @@ Route::get('/', 'BrandController@show');
     Route::post('/brand/edit/{id}', 'BrandController@update');
     Route::get('/brand/delete/{id}', 'BrandController@destroy');
     Route::post('/home', 'BrandController@store');
-
-
-
-
-
-
 
 
 //Customer
@@ -129,3 +123,5 @@ Route::post('/userReview', 'ReviewController@storeReview' );
 Auth::routes();
 
 Route::get('/account', 'HomeController@index')->name('home');
+
+Route::get('cgdv', function(){return View::make('cgdv');});

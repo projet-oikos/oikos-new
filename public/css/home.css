@@ -32,7 +32,7 @@ body{
     height:60px;
     background-color:#f8772a !important;
     font-size: 4rem !important;
-    line-height: 3rem !important;
+    line-height: 2rem !important;
     text-transform: uppercase;
     position: relative;
     margin-top: -30px;
@@ -112,4 +112,6 @@ table.dataTable thead .sorting_desc_disabled:after,
 table.dataTable thead .sorting_desc_disabled:before {
     bottom: .5em;
 }
+
+
 

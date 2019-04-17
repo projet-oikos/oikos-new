@@ -2,6 +2,7 @@
 
 @section("content")
 
+
     <div class="jumbotron text-xs-center">
         <h1 class="display-3">Merci</h1>
         <p class="lead">Nous vous avons envoyé un email de confirmation </p>

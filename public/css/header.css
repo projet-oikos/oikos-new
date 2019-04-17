@@ -4,27 +4,27 @@
 }
 
 .header {
-    position: relative;
-    background-image: url("/png/HeaderTest1.png") ;
+    /*position: relative;*/
+    background-image: url("/png/effect-header.png") ;
     background-repeat: no-repeat;
-    height: 15em;
-    background-position: center;
+    display: flex;
+    justify-content: space-between;
+    height: 10em;
+    padding-top: 2em;
+    /*background-position: center;*/
 }
 
-.cart, .question_mark{
+.panier{
     position: relative;
     height: 50px;
+    color: #000;
 }
 
-.cart_wrapper, .question_mark_wrapper{
+.cart{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #fff;
-    border-radius: 50%;
-    height: 100px;
-    width: 100px;
-
+    margin-right: 1em;
 }
 
 .cart_wrapper {
