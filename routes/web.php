@@ -19,7 +19,7 @@ Route::post('/product', 'ProductController@store');
 
 Route::get('/product/create', 'ProductController@createReview');
 
-Route::get('/product/{id}', 'ProductController@viewProduct');
+Route::get('/product/{id}', 'ProductController@viewProduct, {id}');
 
 Route::get('/database-product', 'ProductController@viewDatabase');
 
@@ -29,7 +29,8 @@ Route::get('/review/{id}', 'ProductController@viewProduct');
 
 //Panier
 
-Route::get('/panier', 'PanierController@viewPanier');
+Route::post('/cart', 'PanierController@viewPanier');
+Route::get('/cart', 'PanierController@remove');
 
 
 //Home

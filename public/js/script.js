@@ -18,5 +18,8 @@ $(document).ready(function() {
       $('.imgperso').viewer();
 
   });
+   // $('.remove').on('click', event => {
+   //     $(event.currentTarget).closest('tr').remove();
+   //  });
 
 });
