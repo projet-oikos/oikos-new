@@ -70,12 +70,13 @@
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     @csrf
                 </form>
-    </div>
-    </li>
-    @endguest
-    <li class="nav-item"><a href="panier" class="nav-link">|  <i class="fas fa-shopping-cart"></i>   Panier</a></li>
+                </li>
+            @endguest
+            <li class="nav-item"><a href="panier" class="nav-link">|  <i class="fas fa-shopping-cart"></i>   Panier</a></li>
 
-    </ul>
+        </ul>
+    </div>
+
     <!-- <form class="form-inline my-2 my-lg-0">
          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
