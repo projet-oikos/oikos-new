@@ -27,17 +27,22 @@ class ProductController extends Controller
     {
         $id = request()->route('id');                                                                            // definit l'id par la route utilise
         $userName = DB::table('customer')
-            -> join('review', 'customer.id',  '=', 'review.customer_id')
+            -> join('review', 'customer.id',  '=', 'review.customer_id')                    //on join la table review a la table customer et on verifie que le custumer_id et egale a la review.customer_id
             ->get();
-
+        $review = DB::table('review')->where('product_id', $id)->get();                                   //on met dans review le nombre d'avis correspondant au produit concerné
+        $result = 0;
+        foreach ($review as $test) {
+            $result = $result + $test -> note;
+        }
+        $nbReview = count($review);
+        $average = $result / $nbReview;
+        $average = ceil($average);
         if ($id) {
             $product = Product::find($id);                                                                              // Si l'ID route correspond a l'ID product alors GET
         } else {
             return redirect()->action('CatalogController@viewCatalog');                                          // Sinon si pas d'ID product !! renvois et affiche sur le catatlog
         }
-        return view('product.product', ['product' => $product, 'anyreview' => $userName]);                       // Affiche le product et la review corresondant a l'ID product
-
-
+        return view('product.product', ['product' => $product, 'anyreview' => $userName, 'average' => $average, 'nbReview' => $nbReview] );                       // Affiche le product et la review corresondant a l'ID product
     }
 
     public function createProduct()
@@ -118,7 +123,6 @@ class ProductController extends Controller
         $product = Product::find($id);
         $product->name = $request->input('name');
         $product->price = $request->input('price');
-//        $file = $request->file('image');
 
         for ($i = 1; $i < 5; $i++) {                                                                                    //Boucle for qui vas parcourir les photos de mon formulaire
             $file = $request->file('image' . $i);
@@ -154,7 +158,6 @@ class ProductController extends Controller
         $product->save();
 
 return redirect('productList');
-
     }
 
     /**
@@ -168,6 +171,18 @@ return redirect('productList');
         $product->delete();
 
         return redirect('productList');
+    }
+
+    public function averageReview(Request $request){
+        $review = Review::all();
+        dd($review);
+        $result = 0;
+        for ($i = 0; $i < $review.length(); $i++){
+            $result = $result + $review -> note;
+        }
+//        dd($result);
+        $average = $result / $review.length();
+        return $average;
     }
 }
 

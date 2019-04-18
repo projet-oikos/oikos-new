@@ -24,7 +24,6 @@ Route::get('/product/{id}', 'ProductController@viewProduct');
 Route::get('/database-product', 'ProductController@viewDatabase');
 
 //Review
-
 Route::get('/review/{id}', 'ProductController@viewProduct');
 
 //Panier
@@ -34,12 +33,10 @@ Route::get('/cartRemove', 'PanierController@remove');
 
 
 //Home
-
 Route::get('/home', 'BrandController@show');
 Route::get('/', 'BrandController@show');
 
 //Brands
-
     Route::get('/brand/brandlist', 'BrandController@brandList');
     Route::get('/brand/create', 'BrandController@create');
     Route::get('/brand/edit/{id}', 'BrandController@edit');
@@ -47,18 +44,16 @@ Route::get('/', 'BrandController@show');
     Route::get('/brand/delete/{id}', 'BrandController@destroy');
     Route::post('/home', 'BrandController@store');
 
-
 //Customer
-
 Route::get('/customer', 'CustomerController@index');
 
 //form
-
-
 Route::get('/productList', 'ProductController@productList');
+
 //Creer product
 Route::get('/createProduct', 'ProductController@createProduct');
 Route::post('/productList', 'ProductController@storeProduct');
+
 //Modifier product
 Route::get('/productEdit/{id}', 'ProductController@editProduct');
 Route::post('/product/{id}/edit', 'ProductController@storeProduct');
