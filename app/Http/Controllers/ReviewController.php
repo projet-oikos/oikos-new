@@ -21,7 +21,6 @@ class ReviewController extends BaseController
 //        $this->validate($request, [
 //            'review' => 'required',
 ////            'note' => 'required',
-//
 //        ]);
         $review = new Review();
         $review->review = $request->input('guestReview');
@@ -45,13 +44,14 @@ class ReviewController extends BaseController
         return view('product.formReviewProduct', ['product' => $currentProduct]);
     }
 
-//    public function statReview(Request $request){
-//       $result = 0;
-//       for (i = 0; i < $review.lenght; i++){
-//
-//       }
 
-    }
-
+//        public function statReview(Request $request)
+//        {
+//            $result = 0;
+//            for (i = 0; i < review.lenght; i++){
+//                $result = $result + review('note');
+//            }
+//            avrage = $result / $review.lenght;
+//        }
 
 }
