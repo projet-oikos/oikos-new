@@ -67,8 +67,8 @@
         <div class="card-header">
             Avis Client
         </div>
-        @foreach($product -> reviews() -> get() as $review)
-
+             @foreach( $anyreview as $review)
+            @if($product->id === $review->product_id)
             <div class="card-body">                                                                         <!-- encart avis client / etoile / note -->
                 <input type="hidden" class="star{{$review->id}}" value="{{$review->note}}">
                 <p>{{$review -> review}}</p>                                                                <!-- Affiche l'avis client -->
@@ -84,16 +84,18 @@
                 <script type="text/javascript">
                     showStar({{$review->id}});
                 </script>                                             <!-- etoile -->
-                <p>Note de {{$review -> note}}  basée sur  {{$review -> id}}  avis.</p>                     <!-- Affiche la note de l'avis client -->
-                <small class="text-muted">Posté . {{$review -> date}}</small>                 <!-- Affiche la date de l'avis client -->
+                <small class="text-muted">Posté par : {{$review -> lastname.' '.$review -> name}} le {{$review -> date}}</small>                 <!-- Affiche la date de l'avis client -->
                 <hr>
             </div>
+            @endif
         @endforeach
+        @can('create', \App\Review::class)
     <form method="post" action="/review">
         {{csrf_field()}}
         <input type="hidden" name="product" value="{{$product -> id}}">
         <button type="submit" class="btn colorBtn btn-lg end">Laisser un avis</button><br>
     </form>
+        @endcan
         <a target = "_blank" href="{{$product -> pdf}}" class="btn colorBtn btn-lg end">Fiche Technique (PDF)</a><br>                  <!-- LIEN PDF vers fiche technique du produit -->
     </div>
 

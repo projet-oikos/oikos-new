@@ -62,7 +62,7 @@ $(document).ready(function () {
 
 function showStar(id) {
     let note = $('.star'+id).val();
-    console.log(id + ' correspond ' + note);
+    // console.log(id + ' correspond ' + note);
     let impro ='.selectNote'+id;
 
     $test = $(impro).children().slice(0, note);

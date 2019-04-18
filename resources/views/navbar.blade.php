@@ -70,7 +70,6 @@
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     @csrf
                 </form>
-    </div>
     </li>
     @endguest
     <li class="nav-item"><a href="panier" class="nav-link">|  <i class="fas fa-shopping-cart"></i>   Panier</a></li>
