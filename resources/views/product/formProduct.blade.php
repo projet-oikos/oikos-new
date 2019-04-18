@@ -9,7 +9,7 @@
         {{ csrf_field() }}
 
         <div class="form-group col-lg-6 container">
-            <select class="form-control" name="brand" id="exampleFormControlSelect1">
+            <select class="form-control" name="brand">
                 @foreach($anybrand as $brand)
                     <option value="{{$brand->id}}">{{$brand->name}}</option>
                 @endforeach
@@ -81,8 +81,7 @@
             <div class="d-flex justify-content-between">
                 <button class="btn colorBtn btn-lg end" type="submit">Creer</button>
                 <button class="btn colorBtn btn-lg end" type="submit">Modifier</button>
-                <button class="btn colorBtn btn-lg end" type="submit">Supprimer
-                </button> {{-- Boutton pour ajouter / modifier / supprimer --}}
+                <button class="btn colorBtn btn-lg end" type="submit">Supprimer</button> {{-- Boutton pour ajouter / modifier / supprimer --}}
             </div>
         </div>
 

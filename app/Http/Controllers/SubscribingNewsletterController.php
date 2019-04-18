@@ -9,6 +9,14 @@ use App\Subscribingnewsletter;
 
 class SubscribingNewsletterController extends Controller
 {
+
+    public function __construct()
+    {
+
+        $this->middleware('auth') ->except(['show']);
+
+    }
+
     public function show()
     {
         return view('newsletter/subscribingnewsletter');

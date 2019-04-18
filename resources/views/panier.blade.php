@@ -6,7 +6,7 @@
             <h1 class="jumbotron-heading">PANIER</h1>
         </div>
     </section>
-
+{{--{{dd($choice)}}--}}
     <div class="container mb-4">
         <div class="row">
             <div class="col-12">
@@ -24,8 +24,8 @@
                         </thead>
                         <tbody>
 
-                        @foreach($cart as $product)
-
+                        @foreach($choice as $products)
+                            @foreach($products as $product)
 
                         <tr>
                             <td><img class="img-product" src="{{asset($product->image1)}}" /> </td>
@@ -33,9 +33,9 @@
                             <td>En Stock</td>
                             <td><input class="form-control" type="text" value="1" /></td>
                             <td class="text-right">{{$product->price}}</td>
-                            <td class="text-right"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button> </td>
+                            <td class="text-right"><a href="{{action('PanierController@remove', ['id'=> $product->id])}}" class="btn btn-sm btn-danger remove"><i class="fa fa-trash"></i> </a> </td>
                         </tr>
-
+                            @endforeach
                         @endforeach
                         <tr>
                             <td></td>

@@ -17,7 +17,6 @@ class CustomerController extends Controller
 
     public function createCustomer()
     {
-
         return view('customer.customerForm');
     }
 

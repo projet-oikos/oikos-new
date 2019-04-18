@@ -3,7 +3,9 @@
 namespace App\Providers;
 
 use App\Brand;
+use App\Review;
 use App\Policies\BrandPolicy;
+use App\Policies\ReviewPolicy;
 use App\User;
 use function foo\func;
 use App\Policies\ProductPolicy;
@@ -19,9 +21,11 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
+
         'App\Model' => 'App\Policies\ModelPolicy',
         Brand::class => BrandPolicy::class,
-        Product::class => ProductPolicy::class
+        Product::class => ProductPolicy::class,
+        Review::class => ReviewPolicy::class
     ];
 
     /**

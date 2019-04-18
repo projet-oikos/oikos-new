@@ -2,6 +2,7 @@
 
 @section ("content")
 
+
 <div>
 <strong><h1>Article 1'Objet</h1>></strong>
 
@@ -69,5 +70,4 @@ Une indemnité complémentaire pourra être réclamée, sur justificatifs, lorsq
 
     <li>e-mail: oikos@gmail.com </li><br>
 </div>
-
-    @endsection
+@endsection

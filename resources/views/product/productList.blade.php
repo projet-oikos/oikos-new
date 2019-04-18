@@ -4,7 +4,7 @@
     <div class="content col">
         <h1 class="text-center mt-5 mb-4">Produit de notre website</h1>
         <a href="{{action('ProductController@createProduct')}}" class="btn btn-success">Creer un nouveau produit<i class="fas fa-plus-circle"></i></a>
-        <table id="dtBasicExample" class="table table-striped table-bordered table-sm col-md-8 center-div mb-5" cellspacing="0" width="100%">
+        <table id="tableProduct" class="table table-striped table-bordered table-sm col-md-8 center-div mb-5" cellspacing="0" width="100%">
             <thead>
                 <tr>
                     <th class="th-sm">Name

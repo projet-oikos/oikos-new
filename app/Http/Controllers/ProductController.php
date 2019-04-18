@@ -26,28 +26,29 @@ class ProductController extends Controller
     public function viewProduct()
     {
         $id = request()->route('id');                                                                            // definit l'id par la route utilise
-        $anyreview = review::all();
-
+        $userName = DB::table('customer')
+            -> join('review', 'customer.id',  '=', 'review.customer_id')
+            ->get();
 
         if ($id) {
             $product = Product::find($id);                                                                              // Si l'ID route correspond a l'ID product alors GET
         } else {
             return redirect()->action('CatalogController@viewCatalog');                                          // Sinon si pas d'ID product !! renvois et affiche sur le catatlog
         }
-        return view('product.product', ['product' => $product, 'anyreview' => $anyreview]);                       // Affiche le product et la review corresondant a l'ID product
+        return view('product.product', ['product' => $product, 'anyreview' => $userName]);                       // Affiche le product et la review corresondant a l'ID product
 
 
     }
 
     public function createProduct()
-    {    $this->authorize('create', Product::class);                                                                                                            //Fonction pour le formulaire de cration de nouveau produit
+    {    $this->authorize('create', Product::class);                                                   //Fonction pour le formulaire de cration de nouveau produit
         $anybrand = Brand::all();
         return view('product.create', ['anybrand' => $anybrand]);                                                  //Affiche le formulaire a l'admin
     }
 
     public function storeProduct(Request $request)
     {
-        $this->authorize('create', Product::class);                                                                                                                //Fonction pour le formulaire qui vas stocker les donnees
+        $this->authorize('create', Product::class);                                                    //Fonction pour le formulaire qui vas stocker les donnees
         $brand = Brand::find(request('brand'));
         $brandName = strtolower(str_replace(" ", "_", $brand->name));
         $product = new Product();
@@ -57,7 +58,6 @@ class ProductController extends Controller
         $product->weight = request('weight');
         for ($i = 1; $i < 5; $i++) {                                                                                    //Boucle for qui vas parcourir les photos de mon formulaire
             $file = $request->file('image' . $i);
-
             if ($file) {
                 if ($i != null) {
                     $ext = $file->getClientOriginalExtension();

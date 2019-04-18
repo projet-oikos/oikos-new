@@ -20,7 +20,9 @@
         <div class="d-flex justify-content-between">
 
          <div class="d-flex">
-             <form action="catalog" method="post" enctype="multipart/form-data" class="mr-2">
+             <form action="/cart" method="post" enctype="multipart/form-data" class="mr-2">
+                 {{csrf_field()}}
+                 <input type="hidden" name="product" value="{{$cardProduct->id}}">
                  <button type="submit" class="btn btnColor btn-lg">Acheter</button>
              </form>
               <a href="/product/{{$cardProduct->id}}" class="btn btn-secondary btn-lg">Fiche complète</a>
