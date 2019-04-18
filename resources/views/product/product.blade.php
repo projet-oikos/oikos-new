@@ -50,8 +50,13 @@
                     </div>
                     <div class="card-body">
 
-                        <h4>€ {{$product -> price}}</h4>                                                                    <!-- affiche le prix du produit -->
-                        <a href="#" class="btn colorBtn btn-lg">Ajout Panier</a>                                            <!-- Bouton ajout au panier -->
+                        <h4>€ {{$product -> price}}</h4><!-- affiche le prix du produit -->
+                        <form action="/cart" method="post" enctype="multipart/form-data" class="mr-2">
+                            {{csrf_field()}}
+                            <input type="hidden" name="product" value="{{$product->id}}">
+                            <button type="submit" class="btn btnColor btn-lg">Ajout Panier</button>                         <!-- Bouton ajout au panier -->
+                        </form>
+
                     </div>
                 </div>
                 <div class="card card-outline-secondary my-4">

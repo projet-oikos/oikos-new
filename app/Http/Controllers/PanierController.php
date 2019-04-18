@@ -21,19 +21,22 @@ class PanierController extends Controller
         $this->middleware('auth');
     }
 
+    public function cart(){
+        return view('panier', ["choice" => session('product')]);
+    }
     /**
      * @param Request $request
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View*
      */
     public function viewPanier(Request $request)
     {
         $choice = DB::table('product')->where('id', $request->product)->get();
 
-if (!session('product', $choice->id)){
-    session::push('product', $choice) ;
-}
 
-dd(session('product'));
+    session::push('product', $choice) ;
+
+
+
         return view('panier', ["choice" => session('product')]);
     }
 
@@ -49,7 +52,7 @@ dd(session('product'));
 
         session::forget('product', $remove) ;
 
-        dd(session('product'));
+    
 
        return view('panier', ["choice" => session('product')]);
     }

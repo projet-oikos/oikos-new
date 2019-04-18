@@ -72,7 +72,7 @@
                 </form>
                 </li>
             @endguest
-            <li class="nav-item"><a href="panier" class="nav-link">|  <i class="fas fa-shopping-cart"></i>   Panier</a></li>
+            <li class="nav-item"><a href="/cart" class="nav-link">|  <i class="fas fa-shopping-cart"></i>   Panier</a></li>
 
         </ul>
     </div>
