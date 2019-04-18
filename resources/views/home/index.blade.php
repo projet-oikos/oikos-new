@@ -26,14 +26,20 @@
                             <div class="homeProductTitle">{{$product->name}}</div>
                             <div class="homeProductPhoto"><img src="{{$product->image1}}" width="100%"></div>
                             <div class="row">
-                                <div class="homeProductQty col-sm-6">Quantité : <input type="number" min="1"
+
+                 .               <div class="homeProductQty col-sm-6">Quantité : <input type="number" min="1"
                                                                                        max="{{$product->stock}}"
                                                                                        name="quantity" value="1"></div>
                                 <div class="homeProductPrice col-sm-6">{{$product->price}} €</div>
                             </div>
                             <div class="homeProductButton">
                                 <a href="/product/{{$product->id}}"><button class="btn btn-info" style="color: white"><strong>+ info</strong></button></a>
-                                <button class="btn btn-success"><i class="fas fa-shopping-cart"></i></button>
+                                <form action="/cart" method="post" enctype="multipart/form-data" class="mr-2">
+                                    {{csrf_field()}}
+                                    <input type="hidden" name="product" value="{{$product->id}}">
+                                    <button type="submit" class="btn btn-success"><i class="fas fa-shopping-cart"></i></button>
+                                </form>
+
                             </div>
                         </div>
                     @endforeach
