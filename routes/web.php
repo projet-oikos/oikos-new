@@ -54,9 +54,6 @@ Route::get('/', 'BrandController@show');
 
 
 
-//Customer
-
-Route::get('/customer', 'CustomerController@index');
 
 //form
 
