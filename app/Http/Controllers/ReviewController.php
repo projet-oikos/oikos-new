@@ -1,5 +1,7 @@
 <?php
+
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Auth\Access\Gate;
@@ -15,21 +17,20 @@ class ReviewController extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
 
-
-    public function storeReview(Request $request) {
+    public function storeReview(Request $request)
+    {
 
 //        $this->validate($request, [
 //            'review' => 'required',
-////            'note' => 'required',
+//            'note' => 'required',
 //        ]);
         $review = new Review();
         $review->review = $request->input('guestReview');
         $review->note = $request->input('note');
         $review->product_id = $request->input('product_id');
-        $review->customer_id =2; //$request->input('customer_id');
+        $review->customer_id = 2; //$request->input('customer_id');
         $review->date = Carbon::now();
         $review->save();
-
 
 
         return redirect()->action('ProductController@viewProduct', ['id' => $request->input('product_id')]);
@@ -40,18 +41,6 @@ class ReviewController extends BaseController
         $currentProduct = DB::table('product')->where('id', $request->product)->get();
 
 
-
         return view('product.formReviewProduct', ['product' => $currentProduct]);
     }
-
-
-//        public function statReview(Request $request)
-//        {
-//            $result = 0;
-//            for (i = 0; i < review.lenght; i++){
-//                $result = $result + review('note');
-//            }
-//            avrage = $result / $review.lenght;
-//        }
-
 }

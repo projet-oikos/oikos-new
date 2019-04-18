@@ -39,7 +39,6 @@ Route::get('/home', 'BrandController@show');
 Route::get('/', 'BrandController@show');
 
 //Brands
-
     Route::get('/brand/brandlist', 'BrandController@brandList');
     Route::get('/brand/create', 'BrandController@create');
     Route::get('/brand/edit/{id}', 'BrandController@edit');
@@ -48,21 +47,17 @@ Route::get('/', 'BrandController@show');
     Route::post('/home', 'BrandController@store');
 
 
+//Customer
 
-
-
-
-
-
+Route::get('/customer', 'CustomerController@index');
 
 //form
-
-Route::get('/formReview', 'FormsController@create');
-Route::post('/formReview', 'FormsController@store');
 Route::get('/productList', 'ProductController@productList');
+
 //Creer product
 Route::get('/createProduct', 'ProductController@createProduct');
 Route::post('/productList', 'ProductController@storeProduct');
+
 //Modifier product
 Route::get('/productEdit/{id}', 'ProductController@editProduct');
 Route::post('/product/{id}/edit', 'ProductController@storeProduct');

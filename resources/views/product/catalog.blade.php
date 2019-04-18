@@ -22,10 +22,13 @@
                  {{csrf_field()}}
                  <input type="hidden" name="product" value="{{$cardProduct->id}}">
                  <button type="submit" class="btn btnColor btn-lg">Acheter</button>
+
              </form>
               <a href="/product/{{$cardProduct->id}}" class="btn btn-secondary btn-lg">Fiche complète</a>
            </div>
-
+            <div class="homeProductQty justify-content-end">Quantité : <input type="number" min="1"
+                                                                                 max="{{$cardProduct->stock}}"
+                                                                                 name="quantity" value="1"></div><br>     {{--//////////////////choix quantité de produit///////////////--}}
             <div>
             <button  type="button" class="btn btnColor " id="test">{{$cardProduct->price}} €</button>   {{--/////////////////       Prix produit      ///////////////////////////////////////////////////////--}}
             </div>

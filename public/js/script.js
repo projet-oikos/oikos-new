@@ -60,8 +60,6 @@ $(document).ready(function () {
         $value = 5;
         $("form").append("<input name='note' type='hidden' value=" + $value + ">");
     });
-
-
 });
 
 function showStar(id) {
@@ -71,4 +69,11 @@ function showStar(id) {
 
     $test = $(impro).children().slice(0, note);
     $test.addClass('checked');
-    }
+}
+
+function averageStar($average) {
+     let impro = $('#average').val();
+
+    $test = $('#MoyStar').children().slice(0, impro);
+    $test.addClass('checked');
+}
