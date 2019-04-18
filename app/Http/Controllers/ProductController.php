@@ -26,15 +26,16 @@ class ProductController extends Controller
     public function viewProduct()
     {
         $id = request()->route('id');                                                                            // definit l'id par la route utilise
-        $anyreview = review::all();
-
+        $userName = DB::table('customer')
+            -> join('review', 'customer.id',  '=', 'review.customer_id')
+            ->get();
 
         if ($id) {
             $product = Product::find($id);                                                                              // Si l'ID route correspond a l'ID product alors GET
         } else {
             return redirect()->action('CatalogController@viewCatalog');                                          // Sinon si pas d'ID product !! renvois et affiche sur le catatlog
         }
-        return view('product.product', ['product' => $product, 'anyreview' => $anyreview]);                       // Affiche le product et la review corresondant a l'ID product
+        return view('product.product', ['product' => $product, 'anyreview' => $userName]);                       // Affiche le product et la review corresondant a l'ID product
 
 
     }

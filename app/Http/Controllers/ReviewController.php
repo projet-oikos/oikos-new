@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Auth\Access\Gate;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
@@ -27,7 +28,7 @@ class ReviewController extends BaseController
         $review->note = $request->input('note');
         $review->product_id = $request->input('product_id');
         $review->customer_id =2; //$request->input('customer_id');
-        $review->date = Carbon::today();
+        $review->date = Carbon::now();
         $review->save();
 
 
@@ -42,6 +43,14 @@ class ReviewController extends BaseController
 
 
         return view('product.formReviewProduct', ['product' => $currentProduct]);
+    }
+
+//    public function statReview(Request $request){
+//       $result = 0;
+//       for (i = 0; i < $review.lenght; i++){
+//
+//       }
+
     }
 
 
