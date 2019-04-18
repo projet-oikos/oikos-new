@@ -19,10 +19,10 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="{{url('/catalog')}}">Catalogue général</a>
-                    <a class="dropdown-item" href="#">Eau</a>
-                    <a class="dropdown-item" href="#">Chauffage</a>
-                    <a class="dropdown-item" href="#">Electricité</a>
-                    <a class="dropdown-item" href="#">Nourriture</a>
+                    <a class="dropdown-item" href="{{url('/water')}}">Eau</a>
+                    <a class="dropdown-item" href="{{url('/heating')}}">Chauffage</a>
+                    <a class="dropdown-item" href="{{url('/electricity')}}">Electricité</a>
+                    <a class="dropdown-item" href="{{url('/food')}}">Nourriture</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Best-seller</a>
                 </div>

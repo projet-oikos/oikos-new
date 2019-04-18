@@ -1,6 +1,4 @@
 @extends ("layout")
-{{--{{dd($catalog)}}--}}
-{{--dd($product)--}}
 @section("content")
 
     @foreach($catalog as $cardProduct)      {{--/////////////////////////////////         Boucle qui fabrique une carte produit par produit            //////////////////////////////////////////////////////////////////////--}}
@@ -14,7 +12,7 @@
 
     <div class="card car-perso">
         <div class="card-body">
-            <h2 class="card-title"> {{--{{$cardProduct->brand->name}} --}} {{$cardProduct->name}}</h2><br>            {{-- /////////////////       Nom produit      ///////////////////////////////////////////////////////--}}
+            <h2 class="card-title"> {{--{{$cardProduct->brand->name}} --}} {{$cardProduct->name}}</h2><br>    {{-- /////////////////       Nom produit      ///////////////////////////////////////////////////////--}}
 
             <p class="card-text">{{$cardProduct->description}}</p><br>                      {{-- /////////////////       Description produit      ///////////////////////////////////////////////////////--}}
         <div class="d-flex justify-content-between">
@@ -38,6 +36,5 @@
 </div>
 
 @endforeach
-    {{--<img src="{{asset('img/aerogarden/test_03.jpg')}}" id="imgtest">--}}
 
 @endsection

@@ -109,6 +109,14 @@ Route::get('/catalog', 'CatalogController@viewCatalog');
 
 Route::get('/catalog', 'CatalogController@viewCatalog');
 
+Route::get('/water', 'CatalogController@viewWaterProduct');
+
+Route::get('/food', 'CatalogController@viewFoodProduct');
+
+Route::get('/heating', 'CatalogController@viewHeatingProduct');
+
+Route::get('/electricity', 'CatalogController@viewElectricProduct');
+
 // Contact
 Route::get('/contact', 'ContactController@show' );
 Route::post('/contact', 'ContactController@store');

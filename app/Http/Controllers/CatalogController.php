@@ -23,7 +23,27 @@ class CatalogController extends Controller
 
     public function addToCart() {
 
+
         
+    }
+
+    public function viewWaterProduct (){
+        $catalog = DB::table('product')->where('Category', 'Eau')->get();
+        return view('product.catalog', ["catalog" => $catalog]);
+    }
+    public function viewFoodProduct (){
+        $catalog = DB::table('product')->where('Category', 'Nourriture')->get();
+        return view('product.catalog', ["catalog" => $catalog]);
+    }
+
+    public function viewHeatingProduct (){
+        $catalog = DB::table('product')->where('Category', 'Chauffage')->get();
+        return view('product.catalog', ["catalog" => $catalog]);
+    }
+
+    public function viewElectricProduct (){
+        $catalog = DB::table('product')->where('Category', 'Electricité')->get();
+        return view('product.catalog', ["catalog" => $catalog]);
     }
 }
 
