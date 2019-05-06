@@ -128,4 +128,4 @@ Auth::routes();
 
 Route::get('/account', 'HomeController@index')->name('home');
 
-Route::get('/cgdv', function(){return View::make('cgdv');});
+Route::get('/cgdv', function(){return View::make('conditionVente/cgdv');});
