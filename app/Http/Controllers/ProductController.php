@@ -36,7 +36,7 @@ class ProductController extends Controller
         }
         $nbReview = count($review);
         $average = $result / $nbReview;
-        $average = ceil($average);
+        $average = floor($average);
         if ($id) {
             $product = Product::find($id);                                                                              // Si l'ID route correspond a l'ID product alors GET
         } else {
