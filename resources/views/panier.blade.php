@@ -5,9 +5,13 @@
         <div class="container">
             <h1 class="jumbotron-heading">PANIER</h1>
         </div>
+
     </section>
-{{--{{dd($choice)}}--}}
+    <div class="d-flex justify-content-end mr-5">
+        <a href="/removeCart" class="btn btn-danger">Videz mon panier</a>
+    </div>
     <div class="container mb-4">
+
         <div class="row">
             <div class="col-12">
                 <div class="table-responsive">
@@ -23,7 +27,7 @@
                         </tr>
                         </thead>
                         <tbody>
-
+                    @if(isset($choice))
                         @foreach($choice as $products)
                             @foreach($products as $product)
 
@@ -37,13 +41,14 @@
                         </tr>
                             @endforeach
                         @endforeach
+                        @endif
                         <tr>
                             <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
                             <td>Total HT</td>
-                            <td class="text-right"> €</td>
+                            <td class="text-right">{{$total_ht}} €</td>
                         </tr>
                         <tr>
                             <td></td>
@@ -51,7 +56,7 @@
                             <td></td>
                             <td></td>
                             <td>Livraison</td>
-                            <td class="text-right"> €</td>
+                            <td class="text-right">{{$livraison}} €</td>
                         </tr>
                         <tr>
                             <td></td>
@@ -59,7 +64,7 @@
                             <td></td>
                             <td></td>
                             <td>TVA</td>
-                            <td class="text-right"> €</td>
+                            <td class="text-right">{{$tva}} €</td>
                         </tr>
                         <tr>
                             <td></td>
@@ -67,7 +72,7 @@
                             <td></td>
                             <td></td>
                             <td><strong>Total</strong></td>
-                            <td class="text-right"><strong> €</strong></td>
+                            <td class="text-right"><strong>{{$total}} €</strong></td>
                         </tr>
                         </tbody>
                     </table>
@@ -76,10 +81,13 @@
             <div class="col mb-2">
                 <div class="row">
                     <div class="col-sm-12  col-md-6">
-                        <button class="btn btn-block btn-light">Continuer mes achats</button>
+                        <a href="/catalog" class="btn btn-block btn-light">Continuer mes achats</a>
                     </div>
                     <div class="col-sm-12 col-md-6 text-right">
-                        <button class="btn btn-lg btn-block btn-success text-uppercase">Payer</button>
+                        <form action="/commande" method="post" enctype="multipart/form-data" class="mr-2">
+                            {{csrf_field()}}
+                            <button class="btn btn-lg btn-block btn-success text-uppercase">Valider ma commande</button>
+                        </form>
                     </div>
                 </div>
             </div>

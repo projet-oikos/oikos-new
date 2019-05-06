@@ -28,9 +28,12 @@ Route::get('/database-product', 'ProductController@viewDatabase');
 Route::get('/review/{id}', 'ProductController@viewProduct');
 
 //Panier
-Route::get('/cart', 'PanierController@cart');
+Route::get('/cart', 'PanierController@viewPanier');
 Route::post('/cart', 'PanierController@viewPanier');
 Route::get('/cartRemove', 'PanierController@remove');
+Route::get('/removeCart', 'PanierController@allRemove');
+Route::post('/commande', 'PanierController@addOrder');
+Route::get('/commandeValide', 'PanierController@orderValid');
 
 
 //Home
@@ -74,7 +77,6 @@ Route::get('/customerForm/{id}', 'CustomerController@modifyCustomer');
 
 Route::post('/accountCreated', 'CustomerController@storeCustomer');
 
-//Route::get('/customer/{id}', 'CustomerController@view');
 
 Route::get('/customer/deleteCustomerForm', 'CustomerController@show');
 Route::get('/customer/deleteCustomerForm/{id}', 'CustomerController@modifyCustomer');
@@ -86,8 +88,6 @@ Route::post('/customer/{id}/deleteCustomerForm', 'CustomerController@deleteCusto
 Route::get('/customer/{id}/accountCreated', 'CustomerController@edit');
 
 Route::post('/customer/{id}/accountCreated', 'CustomerController@update');
-
-//Route::get('/customer/{id}/deleteCustomerForm', 'CustomerController@destroy');
 
 
 //Function
@@ -104,7 +104,6 @@ Route::get('/about_us', 'AboutUsController@show');
 // Catalog
 Route::get('/catalog', 'CatalogController@viewCatalog');
 
-Route::get('/catalog', 'CatalogController@viewCatalog');
 
 // Contact
 Route::get('/contact', 'ContactController@show' );
@@ -125,4 +124,4 @@ Auth::routes();
 
 Route::get('/account', 'HomeController@index')->name('home');
 
-Route::get('cgdv', function(){return View::make('cgdv');});
+Route::get('/cgdv', function(){return View::make('cgdv');});
