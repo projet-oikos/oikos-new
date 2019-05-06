@@ -24,7 +24,6 @@ Route::get('/product/{id}', 'ProductController@viewProduct');
 Route::get('/database-product', 'ProductController@viewDatabase');
 
 //Review
-
 Route::get('/review/{id}', 'ProductController@viewProduct');
 
 //Panier
@@ -50,18 +49,16 @@ Route::get('/', 'BrandController@show');
     Route::get('/brand/delete/{id}', 'BrandController@destroy');
     Route::post('/home', 'BrandController@store');
 
-
 //Customer
-
 Route::get('/customer', 'CustomerController@index');
 
 //form
-
-
 Route::get('/productList', 'ProductController@productList');
+
 //Creer product
 Route::get('/createProduct', 'ProductController@createProduct');
 Route::post('/productList', 'ProductController@storeProduct');
+
 //Modifier product
 Route::get('/productEdit/{id}', 'ProductController@editProduct');
 Route::post('/product/{id}/edit', 'ProductController@storeProduct');
@@ -71,23 +68,22 @@ Route::post('/product/{id}/edit', 'ProductController@storeProduct');
 Route::post('/product/{id}/edit', 'ProductController@updateProduct');
 Route::get('/product/{id}/delete', 'ProductController@destroyProduct');
 
-Route::get('/customerForm', 'CustomerController@createCustomer');
-
-Route::get('/customerForm/{id}', 'CustomerController@modifyCustomer');
-
-Route::post('/accountCreated', 'CustomerController@storeCustomer');
 
 
-Route::get('/customer/deleteCustomerForm', 'CustomerController@show');
-Route::get('/customer/deleteCustomerForm/{id}', 'CustomerController@modifyCustomer');
-Route::post('/customerForm', 'CustomerController@createCustomer');
+//Customer
 
-Route::get('/customer/{id}/deleteCustomerForm', 'CustomerController@deleteCustomer');
-Route::post('/customer/{id}/deleteCustomerForm', 'CustomerController@deleteCustomer');
+Route::get('/customer', 'CustomerController@index');
 
-Route::get('/customer/{id}/accountCreated', 'CustomerController@edit');
 
-Route::post('/customer/{id}/accountCreated', 'CustomerController@update');
+Route::get('/customer/{id}/edit', 'CustomerController@edit');
+Route::post('/customer/{id}/edit', 'CustomerController@update');
+
+Route::get('/customer/{id}/delete', 'CustomerController@delete');
+
+Route::get('/customer/create', 'CustomerController@create');
+Route::post('/create', 'CustomerController@insert');
+
+Route::get('/customer/{id}', 'CustomerController@show');
 
 
 //Function
@@ -104,6 +100,14 @@ Route::get('/about_us', 'AboutUsController@show');
 // Catalog
 Route::get('/catalog', 'CatalogController@viewCatalog');
 
+
+Route::get('/water', 'CatalogController@viewWaterProduct');
+
+Route::get('/food', 'CatalogController@viewFoodProduct');
+
+Route::get('/heating', 'CatalogController@viewHeatingProduct');
+
+Route::get('/electricity', 'CatalogController@viewElectricProduct');
 
 // Contact
 Route::get('/contact', 'ContactController@show' );

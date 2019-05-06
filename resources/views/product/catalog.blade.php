@@ -1,6 +1,4 @@
 @extends ("layout")
-{{--{{dd($catalog)}}--}}
-{{--dd($product)--}}
 @section("content")
 
     @foreach($catalog as $cardProduct)      {{--/////////////////////////////////         Boucle qui fabrique une carte produit par produit            //////////////////////////////////////////////////////////////////////--}}
@@ -14,7 +12,7 @@
 
     <div class="card car-perso">
         <div class="card-body">
-            <h2 class="card-title"> {{--{{$cardProduct->brand->name}} --}} {{$cardProduct->name}}</h2><br>            {{-- /////////////////       Nom produit      ///////////////////////////////////////////////////////--}}
+            <h2 class="card-title"> {{--{{$cardProduct->brand->name}} --}} {{$cardProduct->name}}</h2><br>    {{-- /////////////////       Nom produit      ///////////////////////////////////////////////////////--}}
 
             <p class="card-text">{{$cardProduct->description}}</p><br>                      {{-- /////////////////       Description produit      ///////////////////////////////////////////////////////--}}
         <div class="d-flex justify-content-between">
@@ -24,10 +22,13 @@
                  {{csrf_field()}}
                  <input type="hidden" name="product" value="{{$cardProduct->id}}">
                  <button type="submit" class="btn btnColor btn-lg">Acheter</button>
+
              </form>
               <a href="/product/{{$cardProduct->id}}" class="btn btn-secondary btn-lg">Fiche complète</a>
            </div>
-
+            <div class="homeProductQty justify-content-end">Quantité : <input type="number" min="1"
+                                                                                 max="{{$cardProduct->stock}}"
+                                                                                 name="quantity" value="1"></div><br>     {{--//////////////////choix quantité de produit///////////////--}}
             <div>
             <button  type="button" class="btn btnColor " id="test">{{$cardProduct->price}} €</button>   {{--/////////////////       Prix produit      ///////////////////////////////////////////////////////--}}
             </div>
@@ -38,6 +39,5 @@
 </div>
 
 @endforeach
-    {{--<img src="{{asset('img/aerogarden/test_03.jpg')}}" id="imgtest">--}}
 
 @endsection

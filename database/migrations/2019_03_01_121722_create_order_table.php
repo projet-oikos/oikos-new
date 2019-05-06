@@ -29,11 +29,7 @@ class CreateOrderTable extends Migration
         });
 
 
-        DB::table('order')->insert([
-            'orderDate' => Carbon::today(),
-            'billDate' => Carbon::today(),
-            'customer_id' => '1'
-        ]);
+
     }
 
     /**

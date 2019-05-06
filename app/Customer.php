@@ -17,12 +17,15 @@ class Customer extends Model
 
     public function addresses()
     {
-        return $this->hasMany('App\Address');
+        return $this->hasMany(Address::class);
     }
     public function users(){
 
-        return $this->belongsTo('App\User');
+        return $this->belongsTo(User::class);
     }
+    public function reviews(){
 
+        return $this->hasMany(Review::class);
+    }
 
 }

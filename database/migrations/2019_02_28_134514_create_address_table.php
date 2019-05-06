@@ -19,17 +19,17 @@ class CreateAddressTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('number');
             $table->string('address');
-            $table->string('complement');
+            $table->string('complement')->nullable();
             $table->unsignedInteger('nap');
             $table->string('city');
             $table->string('country');
-            $table->unsignedInteger('customer_id');
+            $table->unsignedInteger('customer_id')->nullable();
             $table->timestamps();
         });
 
-     /*   Schema::table('address', function (Blueprint $table) {
-            $table->foreign('customer_id')->references('id')->on('customer');
-        });*/
+            Schema::table('address', function (Blueprint $table) {
+            $table->foreign('customer_id')->references('id')->on('customer')->onDelete('set null');
+        });
 
 
         DB::table('address')->insert([

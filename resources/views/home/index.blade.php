@@ -20,7 +20,6 @@
                 <div class="collapse homeProductCollapse" id="collapseExample{{$brand->id}}">
                     <!-- We will create the products for each brand for our home page -->
 
-
                     @foreach($brand->products()->get() as $product)
                         <div class="card card-body productHome col-sm-3">
                             <div class="homeProductTitle">{{$product->name}}</div>
