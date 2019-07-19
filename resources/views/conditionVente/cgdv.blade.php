@@ -3,8 +3,8 @@
 @section ("content")
 
 
-<div>
-<strong><h1>Article 1'Objet</h1>></strong>
+<div class="container mt-5">
+<strong><h1 class=" text-center">Article 1 l'Objet</h1></strong>
 
 <p>Les conditions générales de ventes décrites ci-après détaillent les droits et obligations de l'entreprise Oikos et de ses clients dans le cadre de la vente des marchandises suivantes produits technologique à but écologique.
 

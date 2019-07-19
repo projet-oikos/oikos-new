@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\Customer;
 use App\Address;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Crypt;
 
 class CustomerController extends Controller
 {
@@ -92,18 +93,18 @@ class CustomerController extends Controller
     public function insert(Request $request){
 
         $customer = new customer();
-        $customer->lastname = \request('lastname');
-        $customer->name = \request('name');
-        $customer->phone = \request('telephone');
+        $customer->lastname = Crypt::encryptString(request('lastname'));
+        $customer->name = Crypt::encryptString(request('name'));
+        $customer->phone = Crypt::encryptString(request('telephone'));
         $customer->save();
 
         $address = new Address();
-        $address->number = \request('number');
-        $address->address = \request('address');
-        $address->complement = \request('complement');
-        $address->nap = \request('nap');
-        $address->city = \request('city');
-        $address->country = \request('country');
+        $address->number = request('number');
+        $address->address = Crypt::encryptString(request('address'));
+        $address->complement = Crypt::encryptString(request('complement'));
+        $address->nap = Crypt::encryptString(request('nap'));
+        $address->city = Crypt::encryptString(request('city'));
+        $address->country = Crypt::encryptString(request('country'));
         $address->save();
         return redirect()->action("CustomerController@index");
     }
