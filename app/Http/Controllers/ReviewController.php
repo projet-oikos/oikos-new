@@ -20,10 +20,6 @@ class ReviewController extends BaseController
     public function storeReview(Request $request)
     {
 
-//        $this->validate($request, [
-//            'review' => 'required',
-//            'note' => 'required',
-//        ]);
         $review = new Review();
         $review->review = $request->input('guestReview');
         $review->note = $request->input('note');

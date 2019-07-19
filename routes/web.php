@@ -42,12 +42,12 @@ Route::get('/', 'BrandController@show');
 
 //Brands
 
-    Route::get('/brand/brandlist', 'BrandController@brandList');
-    Route::get('/brand/create', 'BrandController@create');
-    Route::get('/brand/edit/{id}', 'BrandController@edit');
-    Route::post('/brand/edit/{id}', 'BrandController@update');
-    Route::get('/brand/delete/{id}', 'BrandController@destroy');
-    Route::post('/home', 'BrandController@store');
+Route::get('/brand/brandlist', 'BrandController@brandList');
+Route::get('/brand/create', 'BrandController@create');
+Route::get('/brand/edit/{id}', 'BrandController@edit');
+Route::post('/brand/edit/{id}', 'BrandController@update');
+Route::get('/brand/delete/{id}', 'BrandController@destroy');
+Route::post('/home', 'BrandController@store');
 
 //Customer
 Route::get('/customer', 'CustomerController@index');
